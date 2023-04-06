@@ -12,6 +12,12 @@ public class PlayerMoveAround : MonoBehaviour {
       public float startSpeed = 10f;
       public bool isAlive = true;
 
+      public float orientation; // the angle that the player is facing
+      public int ammo; // the current number of bullets
+      public int health; // the current amoutn of health
+
+      public int weapon_grade; // the level of the weapon
+
       void Start(){
            //anim = gameObject.GetComponentInChildren<Animator>();
            rb2D = transform.GetComponent<Rigidbody2D>();
@@ -20,8 +26,11 @@ public class PlayerMoveAround : MonoBehaviour {
       void Update(){
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             //NOTE: Vertical axis: [w] / up arrow, [s] / down arrow
+            if(health < 0) isAlive = false;
+
+            // Leo's notes add figure out and modify the player move so we can get angular movements
             Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
-           if (isAlive == true){
+            if (isAlive == true){
                   transform.position = transform.position + hvMove * runSpeed * Time.deltaTime;
 
                   if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0)){
