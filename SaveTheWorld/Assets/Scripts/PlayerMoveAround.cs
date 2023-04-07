@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class PlayerMoveAround : MonoBehaviour {
 
@@ -12,7 +13,8 @@ public class PlayerMoveAround : MonoBehaviour {
       public float startSpeed = 10f;
       public bool isAlive = true;
 
-      public float orientation; // the angle that the player is facing
+      public double orientation; // the angle that the player is facing
+      public float ismoving; // is moving or not
       public int ammo; // the current number of bullets
       public int health; // the current amoutn of health
 
@@ -29,7 +31,10 @@ public class PlayerMoveAround : MonoBehaviour {
             if(health < 0) isAlive = false;
 
             // Leo's notes add figure out and modify the player move so we can get angular movements
-            Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+            orientation = orientation + Input.GetAxis("Horizontal");
+            Vector3 hvMove = new Vector3((float)Math.Sin(orientation/18)*Input.GetAxis("Vertical"), (float)Math.Cos(orientation/18)*Input.GetAxis("Vertical"), 0.0f);
+
+            //Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
             if (isAlive == true){
                   transform.position = transform.position + hvMove * runSpeed * Time.deltaTime;
 

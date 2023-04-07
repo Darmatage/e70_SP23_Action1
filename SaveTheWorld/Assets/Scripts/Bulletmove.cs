@@ -8,6 +8,7 @@ public class Bulletmove : MonoBehaviour
     public bool isfired;
     public float speed;
     public float angle;
+    public float range;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class Bulletmove : MonoBehaviour
         Leo's notes:
         pseudocode
         if isfired:
-            bullet pos += speed* <cos(angle), sign(angle)>
+            bullet pos += speed* <cos(angle), sin(angle)>
         **/
     }
 
