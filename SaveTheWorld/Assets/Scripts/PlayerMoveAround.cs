@@ -14,6 +14,7 @@ public class PlayerMoveAround : MonoBehaviour {
       public bool isAlive = true;
 
       public double orientation; // the angle that the player is facing
+      public double num_orient = 360;
       public float ismoving; // is moving or not
       public int ammo; // the current number of bullets
       public int health; // the current amoutn of health
@@ -32,14 +33,17 @@ public class PlayerMoveAround : MonoBehaviour {
 
             // Leo's notes add figure out and modify the player move so we can get angular movements
             orientation = orientation + Input.GetAxis("Horizontal");
-            Vector3 hvMove = new Vector3((float)Math.Sin(Math.PI*orientation/18)*Input.GetAxis("Vertical"), (float)Math.Cos(Math.PI*orientation/18)*Input.GetAxis("Vertical"), 0.0f);
+            Vector3 hvMove = new Vector3((float)Math.Sin(Math.PI*orientation/num_orient)*Input.GetAxis("Vertical"), (float)Math.Cos(Math.PI*orientation/num_orient)*Input.GetAxis("Vertical"), 0.0f);
 
             //Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
             if (isAlive == true){
                   transform.position = transform.position + hvMove * runSpeed * Time.deltaTime;
                   //Quaternion target = new Quaternion(0, 0, 10*orientation);
-                  transform.rotation = Quaternion.Euler(0, 0, (float)(-10*orientation));
-
+                  //transform.rotation = Quaternion.Euler(0, 0, (float)(-10*orientation));
+                  if (Input.GetAxis("Horizontal") != 0)
+                  {
+                        transform.rotation = Quaternion.Euler(0, 0, (float)(-180*orientation/num_orient));
+                  }
                   if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0)){
                   //     anim.SetBool ("Walk", true);
                   //     if (!WalkSFX.isPlaying){
