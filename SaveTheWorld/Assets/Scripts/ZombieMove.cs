@@ -24,6 +24,8 @@ public class ZombieMove : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
+        target_X = transform.position.x;
+        target_Y = transform.position.y;
     }
 
     // Update is called once per frame
