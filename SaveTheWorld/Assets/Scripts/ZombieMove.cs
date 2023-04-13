@@ -17,9 +17,12 @@ public class ZombieMove : MonoBehaviour
     public float orientation = 10;
     public float num_orient = 360;
 
+    private GameHandler gameHandler;
+    private Transform target;
+
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
     }
 
     // Update is called once per frame
@@ -30,6 +33,13 @@ public class ZombieMove : MonoBehaviour
         double y_calc = Math.Cos(Math.PI*orientation/num_orient);
 
         double distance = Math.Sqrt(Math.Pow(transform.position.x - target_X,2) + Math.Pow(transform.position.y - target_Y,2));
+        double DistToPlayer = Vector3.Distance(transform.position, target.position);
+
+        if(DistToPlayer < 3)
+        {
+            target_X = target.position.x;
+            target_Y = target.position.y;
+        }
 
         if(distance > 2)
         {
@@ -43,7 +53,7 @@ public class ZombieMove : MonoBehaviour
             
             //Vector3 target = new Vector3((float)x, (float)y, 0.0f);
             //float angle = Vector3.Angle(target, transform.position);
-            if((y_calc > y + 0.1 || y_calc < y - 0.1)||(x_calc > x + 0.1 || x_calc < x - 0.1))
+            while((y_calc > y + 0.1 || y_calc < y - 0.1)||(x_calc > x + 0.1 || x_calc < x - 0.1))
                 orientation++;
             //orientation = (float)(Math.Asin(y));
             speed = 5;
