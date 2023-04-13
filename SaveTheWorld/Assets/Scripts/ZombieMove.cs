@@ -19,6 +19,7 @@ public class ZombieMove : MonoBehaviour
 
     private GameHandler gameHandler;
     private Transform target;
+    private int framecount = 0;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class ZombieMove : MonoBehaviour
     void Update()
     {
         //Random rnd = new Random();
+        framecount = (framecount+1)%25;
         double x_calc = Math.Sin(Math.PI*orientation/num_orient);
         double y_calc = Math.Cos(Math.PI*orientation/num_orient);
 
@@ -53,8 +55,8 @@ public class ZombieMove : MonoBehaviour
             
             //Vector3 target = new Vector3((float)x, (float)y, 0.0f);
             //float angle = Vector3.Angle(target, transform.position);
-            while((y_calc > y + 0.1 || y_calc < y - 0.1)||(x_calc > x + 0.1 || x_calc < x - 0.1))
-                orientation++;
+            if((y_calc > y + 0.1 || y_calc < y - 0.1)||(x_calc > x + 0.1 || x_calc < x - 0.1))
+                orientation+=5;
             //orientation = (float)(Math.Asin(y));
             speed = 5;
             if(distance < 1)
@@ -64,9 +66,10 @@ public class ZombieMove : MonoBehaviour
         }
         else
         {
-            speed = 1;
-            //orientation ++;
+            speed = 0.1f;
+            if(framecount == 0) orientation += (Math.Abs(orientation)%11 - 5)*5;
         }
+
         Vector3 hvMove = new Vector3((float)x_calc, (float)y_calc, 0.0f);
         transform.position = transform.position + hvMove * Time.deltaTime * speed;
         transform.rotation = Quaternion.Euler(0, 0, (float)(-180*orientation/num_orient));
