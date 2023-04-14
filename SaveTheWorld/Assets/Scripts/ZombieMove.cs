@@ -31,6 +31,7 @@ public class ZombieMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //health = target.eulerAngles;
         //Random rnd = new Random();
         framecount = (framecount+1)%25;
         double x_calc = Math.Sin(Math.PI*orientation/num_orient);
