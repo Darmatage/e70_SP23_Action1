@@ -21,6 +21,7 @@ public class PlayerMoveAround : MonoBehaviour {
       //public int weapon_grade; // the level of the weapon
       public Rigidbody2D rb;
       public GameObject Bullet;
+      private int reload;
 
       void Start(){
            //anim = gameObject.GetComponentInChildren<Animator>();
@@ -29,6 +30,7 @@ public class PlayerMoveAround : MonoBehaviour {
       }
 
       void Update(){
+            if(reload != 0) reload--;
             //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
             //NOTE: Vertical axis: [w] / up arrow, [s] / down arrow
             if(health < 0) isAlive = false;
@@ -59,8 +61,9 @@ public class PlayerMoveAround : MonoBehaviour {
                   //transform.position = newPosition;
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0)&& reload <= 0)
             {
+                  reload = 100;
                   GameObject clone = Instantiate(Bullet) as GameObject;
                   clone.SetActive(true);
             }

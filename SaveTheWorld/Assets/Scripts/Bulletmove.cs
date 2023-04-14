@@ -68,15 +68,7 @@ public class Bulletmove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //isfired = false;
-        //Destroy (gameObject);
-        if (collision.gameObject.tag == "Zombie") {
-            //Destroy (gameObject);
-            angle = (float)target.transform.eulerAngles.z;
-            Vector3 front = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-            transform.position = target.transform.position + front *1.0f;
-            isfired = false;
-        }
+        Destroy (gameObject);
     }
 
     void fired()
