@@ -63,13 +63,13 @@ public class PlayerMoveAround : MonoBehaviour {
 
             if (Input.GetMouseButtonDown(0)&& reload <= 0)
             {
-                  reload = 100;
+                  reload = 2;
                   GameObject clone = Instantiate(Bullet) as GameObject;
                   clone.SetActive(true);
             }
 
             mousePosition = Input.mousePosition;
-            Vector2 mouse = new Vector2(mousePosition.x - 500, mousePosition.y-250);
+            Vector2 mouse = new Vector2(mousePosition.x - Screen.width/2, mousePosition.y- Screen.height/2);
             float angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg -90f;
             transform.rotation = Quaternion.Euler(0, 0, angle);
       }
