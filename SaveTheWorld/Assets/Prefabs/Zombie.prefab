@@ -138,7 +138,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &6542751999601314566
 BoxCollider2D:
@@ -150,7 +150,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -180,8 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunt: 0
   zombiemode: 1
-  target_X: 4
-  target_Y: 0
   orientation: 0
   num_orient: 360
   Human: {fileID: 21300000, guid: 7a6a5af84482b624795febb4baa4b5cd, type: 3}

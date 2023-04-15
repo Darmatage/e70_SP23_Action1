@@ -84,7 +84,7 @@ public class ZombieMove : MonoBehaviour
             spriteRenderer.sprite = Human;
             angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-            if (dist1 > 1)
+            if (dist1 > 2)
             {
                 Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
                 transform.position = transform.position + hvMove * speed * Time.deltaTime;
@@ -95,7 +95,7 @@ public class ZombieMove : MonoBehaviour
         //tracking();
         
     }
-
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         //float bounce = 6f; //amount of force to apply
