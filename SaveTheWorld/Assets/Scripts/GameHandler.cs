@@ -22,6 +22,7 @@ public class GameHandler : MonoBehaviour {
       public static int playerHealth = 100;
       public int StartPlayerHealth = 100;
       public GameObject healthText;
+      public int rescued = 0; // Leo added this
 
       public static int gotTokens = 0; 
       public GameObject tokensText; 
@@ -119,7 +120,7 @@ public class GameHandler : MonoBehaviour {
 
       public void updateStatsDisplay(){
             Text healthTextTemp = healthText.GetComponent<Text>();
-            healthTextTemp.text = "HEALTH: " + playerHealth; 
+            healthTextTemp.text = "HEALTH: " + rescued; 
 
             Text tokensTextTemp = tokensText.GetComponent<Text>();
             tokensTextTemp.text = "GOLD: " + gotTokens;
@@ -160,5 +161,12 @@ public class GameHandler : MonoBehaviour {
 
       public void Credits() {
             SceneManager.LoadScene("Credits");
+      }
+
+      public void civilian_rescued()
+      {
+            rescued++;
+            //healthText.text = "Rescued: " + rescued;
+            updateStatsDisplay();
       }
 }

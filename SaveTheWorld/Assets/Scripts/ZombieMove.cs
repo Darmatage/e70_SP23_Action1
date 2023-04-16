@@ -13,10 +13,7 @@ public class ZombieMove : MonoBehaviour
     private float attack;
     private float health;
 
-    public float orientation = 10;
-    public float num_orient = 360;
-
-    private GameHandler gameHandler;
+    public GameHandler gameHandler;
     private Transform target;
     private int framecount = 0;
     private Vector3 attack_location;
@@ -116,6 +113,11 @@ public class ZombieMove : MonoBehaviour
         {
             zombiemode = true;
             gameObject.tag = "Zombie";
+        }
+        if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
+        {
+            Destroy(gameObject);
+            gameHandler.civilian_rescued();
         }
     }
 }
