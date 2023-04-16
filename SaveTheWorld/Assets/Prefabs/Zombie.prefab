@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6542751999601314565}
   - component: {fileID: 6542751999601314566}
   - component: {fileID: 6542751999601314567}
+  - component: {fileID: 1882430131}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -150,7 +151,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -178,10 +179,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551c0d1028cafe142b2eded7c6377a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hunt: 0
-  zombiemode: 1
+  str_lvl: 1
   gameHandler: {fileID: 0}
   Human: {fileID: 21300000, guid: 7a6a5af84482b624795febb4baa4b5cd, type: 3}
   Zombie: {fileID: 21300000, guid: ad69a2dbd7d8dcf42b03e76327be8fb6, type: 3}
   spriteRenderer: {fileID: 6542751999290763651}
   rb2D: {fileID: 0}
+--- !u!61 &1882430131
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542751999601314560}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

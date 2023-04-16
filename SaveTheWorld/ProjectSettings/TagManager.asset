@@ -8,6 +8,8 @@ TagManager:
   - Zombie
   - Vaccine
   - Civilian
+  - CheckPoint
+  - Info
   layers:
   - Default
   - TransparentFX

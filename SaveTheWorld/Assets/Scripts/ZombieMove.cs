@@ -6,10 +6,12 @@ using System;
 public class ZombieMove : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool hunt;
-    public bool zombiemode = true;
+    private bool hunt;
+    private bool zombiemode = true;
+    public int str_lvl;
 
     private float speed;
+    private float base_speed;
     private float attack;
     private float health;
 
@@ -26,9 +28,16 @@ public class ZombieMove : MonoBehaviour
 
     void Start()
     {
+        zombify();
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
         attack_location = transform.position;
         angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+    }
+
+    void zombify()
+    {
+        health = str_lvl * 1;
+        base_speed = 1 / (str_lvl + 1);
     }
 
     // Update is called once per frame
@@ -103,16 +112,21 @@ public class ZombieMove : MonoBehaviour
         //Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
         //transform.position = transform.position + hvMove * 2 * Time.deltaTime;
 
-        if (collision.gameObject.tag == "Vaccine") 
-        {
-            zombiemode = false;
-            gameObject.tag = "Civilian";
-            speed = 2;
-        }
         if (collision.gameObject.tag == "Zombie") 
         {
             zombiemode = true;
             gameObject.tag = "Zombie";
+            zombify();
+        }
+        if (collision.gameObject.tag == "Vaccine") 
+        {
+            health--;
+            if(health <= 0)
+            {
+                zombiemode = false;
+                gameObject.tag = "Civilian";
+                speed = 2;
+            }
         }
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
         {
