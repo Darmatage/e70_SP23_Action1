@@ -36,6 +36,9 @@ public class Bulletmove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy (gameObject);
+        if (collision.gameObject.tag != "CheckPoint") 
+        {
+            Destroy(gameObject);
+        }
     }
 }

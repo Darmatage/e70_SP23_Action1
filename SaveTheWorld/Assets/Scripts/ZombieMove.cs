@@ -112,7 +112,7 @@ public class ZombieMove : MonoBehaviour
         //Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
         //transform.position = transform.position + hvMove * 2 * Time.deltaTime;
 
-        if (collision.gameObject.tag == "Zombie") 
+        if (collision.gameObject.tag == "Zombie" && !zombiemode) 
         {
             zombiemode = true;
             gameObject.tag = "Zombie";

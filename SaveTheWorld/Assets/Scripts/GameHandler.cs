@@ -163,10 +163,15 @@ public class GameHandler : MonoBehaviour {
             SceneManager.LoadScene("Credits");
       }
 
-      public void civilian_rescued()
+      public void civilian_rescued() // changes the civilian rescue count
       {
             rescued++;
             //healthText.text = "Rescued: " + rescued;
+            updateStatsDisplay();
+      }
+
+      public void shots_fired() // changes the bullet count
+      {
             updateStatsDisplay();
       }
 }
