@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Info_terminal : MonoBehaviour
 {
+    public GameHandler gameHandler;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,10 @@ public class Info_terminal : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+
     }
 }
