@@ -134,4 +134,9 @@ public class ZombieMove : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private Vector3 seek_victim()
+    {
+
+    }
 }
