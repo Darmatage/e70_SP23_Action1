@@ -13,10 +13,11 @@ public class Bulletmove : MonoBehaviour
     private Transform target;
     private Vector3 origin;
     private int life = 100;
-
+    public GameHandler gameHandler;
 
     void Start()
     {
+        if(!gameHandler.can_shoot()) Destroy (gameObject);
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
         transform.rotation = target.transform.rotation;
         angle = (float)target.transform.eulerAngles.z;
@@ -27,6 +28,7 @@ public class Bulletmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(life == 99) gameHandler.shots_fired();
         if(life <= 0) Destroy (gameObject);
         life--;
         Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);

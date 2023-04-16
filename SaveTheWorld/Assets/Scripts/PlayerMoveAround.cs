@@ -60,7 +60,7 @@ public class PlayerMoveAround : MonoBehaviour {
                   //Vector3 newPosition = new Vector3(0, 0, 10);
                   //transform.position = newPosition;
             }
-
+            
             if (Input.GetMouseButtonDown(0)&& reload <= 0)
             {
                   reload = 2;
