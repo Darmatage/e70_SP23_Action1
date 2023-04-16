@@ -22,7 +22,7 @@ public class GameHandler : MonoBehaviour {
       public static int playerHealth = 100;
       public int StartPlayerHealth = 100;
       public GameObject healthText;
-      public int rescued = 0; // Leo added this
+      public int rescued; // Leo added this
 
       public static int gotTokens = 0; 
       public GameObject tokensText; 
@@ -140,6 +140,7 @@ public class GameHandler : MonoBehaviour {
 
       public void StartGame() {
             SceneManager.LoadScene("Level1");
+            updateStatsDisplay();
       }
 
       public void RestartGame() {
@@ -166,7 +167,6 @@ public class GameHandler : MonoBehaviour {
       public void civilian_rescued() // changes the civilian rescue count
       {
             rescued++;
-            //healthText.text = "Rescued: " + rescued;
             updateStatsDisplay();
       }
 

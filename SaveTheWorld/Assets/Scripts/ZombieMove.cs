@@ -130,8 +130,8 @@ public class ZombieMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
         {
-            Destroy(gameObject);
             gameHandler.civilian_rescued();
+            Destroy(gameObject);
         }
     }
 }
