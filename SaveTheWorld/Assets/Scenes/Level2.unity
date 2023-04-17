@@ -287,6 +287,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2813322217801710706, guid: 16401697f80004c078c12c875d765978, type: 3}
   m_PrefabInstance: {fileID: 627774159}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &884745213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2421530581578069442, guid: 6f2df26b0a4638043952eed47ca0ca91, type: 3}
+  m_PrefabInstance: {fileID: 2421530580751948380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1003946278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +1008,7 @@ PrefabInstance:
     - target: {fileID: 3844382490979153006, guid: f457676ed24117d4786f58e3022253ce, type: 3}
       propertyPath: Bullet
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 884745213}
     - target: {fileID: 3844382490979153007, guid: f457676ed24117d4786f58e3022253ce, type: 3}
       propertyPath: m_Name
       value: Player
