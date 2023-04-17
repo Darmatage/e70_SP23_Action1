@@ -13,7 +13,7 @@ public class ZombieMove : MonoBehaviour
     private float speed;
     private float base_speed;
     private float attack;
-    private float health;
+    public float health;
 
     public GameHandler gameHandler;
     private Transform target;
@@ -36,7 +36,7 @@ public class ZombieMove : MonoBehaviour
 
     void zombify()
     {
-        health = str_lvl * 1;
+        health = str_lvl * 2;
         base_speed = 1 / (str_lvl + 1);
     }
 
@@ -132,6 +132,10 @@ public class ZombieMove : MonoBehaviour
         {
             gameHandler.civilian_rescued();
             Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Player" && zombiemode)
+        {
+            gameHandler.playerGetHit(1);
         }
     }
 
