@@ -61,7 +61,7 @@ public class PlayerMoveAround : MonoBehaviour {
                   //transform.position = newPosition;
             }
             
-            if (Input.GetMouseButtonDown(0)&& reload <= 0)
+            if (Input.GetMouseButtonDown(0)/*&& reload <= 0*/)
             {
                   reload = 2;
                   GameObject clone = Instantiate(Bullet) as GameObject;

@@ -20,6 +20,9 @@ public class ZombieMove : MonoBehaviour
     private int framecount = 0;
     private Vector3 attack_location;
     private float angle;
+    private float reinfect = 0.0f;
+    private float rate = 0.99f;
+    private float daze = 0;
 
     public Sprite Human;
     public Sprite Zombie;
@@ -46,6 +49,7 @@ public class ZombieMove : MonoBehaviour
         //health = target.eulerAngles;
         //Random rnd = new Random();
         float dist1 = Vector3.Distance(transform.position, target.transform.position);
+        if(reinfect > 0) reinfect--;
 
         if(zombiemode)
         {
@@ -56,6 +60,12 @@ public class ZombieMove : MonoBehaviour
             
 
             if(dist1 < 3)
+            {
+                attack_location = target.position;
+                hunt = true;
+            }
+
+            if(dist1 < 10 && Input.GetMouseButtonDown(0))
             {
                 attack_location = target.position;
                 hunt = true;
@@ -81,9 +91,16 @@ public class ZombieMove : MonoBehaviour
                 if(framecount == 0) angle += (Math.Abs(angle)%11 - 5)*5;
             }
 
-            Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-            transform.position = transform.position + hvMove * speed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            if(daze == 0)
+            {
+                Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                transform.position = transform.position + hvMove * speed * Time.deltaTime;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+            else
+            {
+                daze --;
+            }
         }
         else
         {
@@ -112,11 +129,12 @@ public class ZombieMove : MonoBehaviour
         //Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
         //transform.position = transform.position + hvMove * 2 * Time.deltaTime;
 
-        if (collision.gameObject.tag == "Zombie" && !zombiemode) 
+        if (collision.gameObject.tag == "Zombie" && !zombiemode && reinfect < 10) 
         {
             zombiemode = true;
             gameObject.tag = "Zombie";
             zombify();
+            reinfect = 0;
         }
         if (collision.gameObject.tag == "Vaccine") 
         {
@@ -126,6 +144,7 @@ public class ZombieMove : MonoBehaviour
                 zombiemode = false;
                 gameObject.tag = "Civilian";
                 speed = 2;
+                reinfect = 500;
             }
         }
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
@@ -136,6 +155,9 @@ public class ZombieMove : MonoBehaviour
         if (collision.gameObject.tag == "Player" && zombiemode)
         {
             gameHandler.playerGetHit(1);
+            daze = 100;
+            Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
+            transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
         }
     }
 
