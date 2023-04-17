@@ -137,6 +137,7 @@ public class ZombieMove : MonoBehaviour
 
     private Vector3 seek_victim()
     {
-
+        Vector3 hvMove = new Vector3(0,0,0);
+        return hvMove;
     }
 }
