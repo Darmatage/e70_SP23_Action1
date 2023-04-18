@@ -11,6 +11,7 @@ TagManager:
   - CheckPoint
   - Info
   - Door
+  - GameHandler
   layers:
   - Default
   - TransparentFX
