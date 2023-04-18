@@ -19,9 +19,14 @@ public class GameHandler : MonoBehaviour {
 
 
       private GameObject player;
-      public static int playerHealth = 100;
-      public int StartPlayerHealth = 100;
+      public static int playerHealth = 10;
+      public int StartPlayerHealth = 10;
       public GameObject healthText;
+      public GameObject rescueText;
+      public GameObject ammoText;
+
+      public static float rescued = 0.0f; // Leo added this
+      public static int ammo = 10; // Leo added this
 
       public static int gotTokens = 0; 
       public GameObject tokensText; 
@@ -121,6 +126,12 @@ public class GameHandler : MonoBehaviour {
             Text healthTextTemp = healthText.GetComponent<Text>();
             healthTextTemp.text = "HEALTH: " + playerHealth; 
 
+            Text rescueTextTemp = rescueText.GetComponent<Text>();// i added this in
+            rescueTextTemp.text = "Rescued: " + rescued; 
+
+            Text ammoTextTemp = ammoText.GetComponent<Text>();// i added this in
+            ammoTextTemp.text = "Ammo: " + ammo; 
+
             Text tokensTextTemp = tokensText.GetComponent<Text>();
             tokensTextTemp.text = "GOLD: " + gotTokens;
       } 
@@ -139,6 +150,7 @@ public class GameHandler : MonoBehaviour {
 
       public void StartGame() {
             SceneManager.LoadScene("Level1");
+            updateStatsDisplay();
       }
 
       public void RestartGame() {
@@ -160,5 +172,22 @@ public class GameHandler : MonoBehaviour {
 
       public void Credits() {
             SceneManager.LoadScene("Credits");
+      }
+
+      public void civilian_rescued() // changes the civilian rescue count
+      {
+            rescued+=0.5f;
+            updateStatsDisplay();
+      }
+
+      public void shots_fired() // changes the bullet count
+      {
+            ammo--;
+            updateStatsDisplay();
+      }
+
+      public bool can_shoot() // changes the bullet count
+      {
+            return ammo > 0;
       }
 }

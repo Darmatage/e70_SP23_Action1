@@ -6,98 +6,164 @@ using System;
 public class ZombieMove : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool hunt;
-    public float target_X = 0;
-    public float target_Y = 0;
+    private bool hunt;
+    private bool zombiemode = true;
+    public int str_lvl;
 
-    public float speed;
-    public float attack;
+    private float speed;
+    private float base_speed;
+    private float attack;
     public float health;
 
-    public float orientation = 10;
-    public float num_orient = 360;
-
-    private GameHandler gameHandler;
+    public GameHandler gameHandler;
     private Transform target;
     private int framecount = 0;
+    private Vector3 attack_location;
+    private float angle;
+    private float reinfect = 0.0f;
+    private float rate = 0.99f;
+    private float daze = 0;
+
+    public Sprite Human;
+    public Sprite Zombie;
+    public SpriteRenderer spriteRenderer;
+    public Rigidbody2D rb2D;
 
     void Start()
     {
+        zombify();
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
-        target_X = transform.position.x;
-        target_Y = transform.position.y;
+        attack_location = transform.position;
+        angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+    }
+
+    void zombify()
+    {
+        health = str_lvl * 2;
+        base_speed = 1 / (str_lvl + 1);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //health = target.eulerAngles;
         //Random rnd = new Random();
-        framecount = (framecount+1)%25;
-        double x_calc = Math.Sin(Math.PI*orientation/num_orient);
-        double y_calc = Math.Cos(Math.PI*orientation/num_orient);
+        float dist1 = Vector3.Distance(transform.position, target.transform.position);
+        if(reinfect > 0) reinfect--;
 
-        double distance = Math.Sqrt(Math.Pow(transform.position.x - target_X,2) + Math.Pow(transform.position.y - target_Y,2));
-        double DistToPlayer = Vector3.Distance(transform.position, target.position);
-
-        if(DistToPlayer < 3)
+        if(zombiemode)
         {
-            target_X = target.position.x;
-            target_Y = target.position.y;
-        }
+            spriteRenderer.sprite = Zombie;
+            framecount = (framecount+1)%25;
 
-        if(distance > 2)
-        {
-            hunt = true;
-        }
-
-        if(hunt)
-        {
-            double x = (target_X - transform.position.x)/distance;
-            double y = (target_Y - transform.position.y)/distance;
+            double DistToPlayer = Vector3.Distance(transform.position, attack_location);
             
-            //Vector3 target = new Vector3((float)x, (float)y, 0.0f);
-            //float angle = Vector3.Angle(target, transform.position);
-            if((y_calc > y + 0.1 || y_calc < y - 0.1)||(x_calc > x + 0.1 || x_calc < x - 0.1))
-                orientation+=5;
-            //orientation = (float)(Math.Asin(y));
-            speed = 5;
-            if(distance < 1)
+
+            if(dist1 < 3)
             {
-                hunt = false;
+                attack_location = target.position;
+                hunt = true;
+            }
+
+            if(dist1 < 10 && Input.GetMouseButtonDown(0))
+            {
+                attack_location = target.position;
+                hunt = true;
+            }
+
+            if(DistToPlayer > 2)
+            {
+                hunt = true;
+            }
+
+            if(hunt)
+            {
+                angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
+                speed = 5;
+                if(DistToPlayer < 1)
+                {
+                    hunt = false;
+                }
+            }
+            else
+            {
+                speed = 1;
+                if(framecount == 0) angle += (Math.Abs(angle)%11 - 5)*5;
+            }
+
+            if(daze == 0)
+            {
+                Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                transform.position = transform.position + hvMove * speed * Time.deltaTime;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+            else
+            {
+                daze --;
             }
         }
         else
         {
-            speed = 0.1f;
-            if(framecount == 0) orientation += (Math.Abs(orientation)%11 - 5)*5;
+            spriteRenderer.sprite = Human;
+            angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            if (dist1 > 2)
+            {
+                Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                transform.position = transform.position + hvMove * speed * Time.deltaTime;
+            }
         }
-
-        Vector3 hvMove = new Vector3((float)x_calc, (float)y_calc, 0.0f);
-        transform.position = transform.position + hvMove * Time.deltaTime * speed;
-        transform.rotation = Quaternion.Euler(0, 0, (float)(-180*orientation/num_orient));
-
 
         //if(hunt) targeting();
         //tracking();
         
     }
-
-    void targeting()
+    
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        /**
-        Leo's notes
-        target = player position
-        targeting will happen in cases like, the player is seen or if the zombie is alerted
-        **/
+        //float bounce = 6f; //amount of force to apply
+        //rb2D.AddForce(collision.contacts[0].normal * bounce);
+        //isBouncing = true;
+
+        //angle += (Math.Abs(angle)%3 - 2)*45;
+        //Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+        //transform.position = transform.position + hvMove * 2 * Time.deltaTime;
+
+        if (collision.gameObject.tag == "Zombie" && !zombiemode && reinfect < 10) 
+        {
+            zombiemode = true;
+            gameObject.tag = "Zombie";
+            zombify();
+            reinfect = 0;
+        }
+        if (collision.gameObject.tag == "Vaccine") 
+        {
+            health--;
+            if(health <= 0)
+            {
+                zombiemode = false;
+                gameObject.tag = "Civilian";
+                speed = 2;
+                reinfect = 500;
+            }
+        }
+        if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
+        {
+            gameHandler.civilian_rescued();
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Player" && zombiemode)
+        {
+            gameHandler.playerGetHit(1);
+            daze = 100;
+            Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
+            transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
+        }
     }
 
-    void tracking()
+    private Vector3 seek_victim()
     {
-        /**
-        leo's notes
-        if zombie is within an epsilon ball of target, it will move in accordance to a brownian motion
-        if zombie is within an epsilon ball of an obstacle, it will move in accordance to a brownian motion
-        else zombie will move to location
-        **/
+        Vector3 hvMove = new Vector3(0,0,0);
+        return hvMove;
     }
 }
