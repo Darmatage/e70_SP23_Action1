@@ -21,7 +21,7 @@ public class ZombieMove : MonoBehaviour
     private Vector3 attack_location;
     private float angle;
     private float reinfect = 0.0f;
-    private float rate = 0.99f;
+    //private float rate = 0.99f;
     private float daze = 0;
 
     public Sprite Human;
