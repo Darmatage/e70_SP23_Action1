@@ -26,7 +26,9 @@ public class GameHandler : MonoBehaviour {
       public GameObject ammoText;
 
       public static float rescued = 0.0f; // Leo added this
-      public static int ammo = 10; // Leo added this
+      public int ammo = 10; // Leo added this
+      public int StartPlayerAmmo = 10;
+
 
       public static int gotTokens = 0; 
       public GameObject tokensText; 
@@ -122,6 +124,13 @@ public class GameHandler : MonoBehaviour {
             }
       } 
 
+      public void playerGetAmmo(int rounds){
+            // if (isDefending == false){
+            //       ammo += rounds;
+            // }
+            ammo += rounds;
+      }
+
       public void updateStatsDisplay(){
             Text healthTextTemp = healthText.GetComponent<Text>();
             healthTextTemp.text = "HEALTH: " + playerHealth; 
@@ -160,6 +169,7 @@ public class GameHandler : MonoBehaviour {
             SceneManager.LoadScene("MainMenu");
                 // Please also reset all static variables here, for new games!
             playerHealth = StartPlayerHealth;
+            ammo = StartPlayerAmmo;
       }
 
       public void QuitGame() {
