@@ -44,6 +44,7 @@ public class PickUp : MonoBehaviour{
                 }
 
             }
+            gameHandler.updatedisplay();
       } 
 
       IEnumerator DestroyThis(){

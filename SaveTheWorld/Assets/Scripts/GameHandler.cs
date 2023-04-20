@@ -200,4 +200,9 @@ public class GameHandler : MonoBehaviour {
       {
             return ammo > 0;
       }
+
+      public void updatedisplay()
+      {
+            updateStatsDisplay();
+      }
 }
