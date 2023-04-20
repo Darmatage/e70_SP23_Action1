@@ -79,7 +79,7 @@ public class ZombieMove : MonoBehaviour
             if(hunt)
             {
                 angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
-                speed = 5;
+                speed = 2.5f;
                 if(DistToPlayer < 1)
                 {
                     hunt = false;
@@ -144,7 +144,7 @@ public class ZombieMove : MonoBehaviour
                 zombiemode = false;
                 gameObject.tag = "Civilian";
                 speed = 2;
-                reinfect = 500;
+                reinfect = 1000;
             }
         }
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
