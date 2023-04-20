@@ -9,7 +9,7 @@ public class PlayerMoveAround : MonoBehaviour {
       //public AudioSource WalkSFX;
       public Vector2 mousePosition;
       public Rigidbody2D rb2D;
-      public static float runSpeed = 10f;
+      public static float runSpeed = 5f;
       public float startSpeed = 10f;
       public bool isAlive = true;
 
