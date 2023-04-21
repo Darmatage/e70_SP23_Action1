@@ -40,7 +40,7 @@ public class ZombieMove : MonoBehaviour
     void zombify()
     {
         health = str_lvl * 2;
-        base_speed = 1 / (str_lvl + 1);
+        base_speed = 1 / ((float)(str_lvl + 1));
     }
 
     // Update is called once per frame
@@ -79,7 +79,7 @@ public class ZombieMove : MonoBehaviour
             if(hunt)
             {
                 angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
-                speed = 2.5f;
+                speed = 6.0f * base_speed;
                 if(DistToPlayer < 1)
                 {
                     hunt = false;
@@ -87,7 +87,7 @@ public class ZombieMove : MonoBehaviour
             }
             else
             {
-                speed = 1;
+                speed = base_speed;
                 if(framecount == 0) angle += (Math.Abs(angle)%11 - 5)*5;
             }
 
@@ -144,7 +144,7 @@ public class ZombieMove : MonoBehaviour
                 zombiemode = false;
                 gameObject.tag = "Civilian";
                 speed = 2;
-                reinfect = 1000;
+                reinfect = 750;
             }
         }
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
