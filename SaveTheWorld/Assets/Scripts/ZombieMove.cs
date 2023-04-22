@@ -58,6 +58,7 @@ public class ZombieMove : MonoBehaviour
 
             double DistToPlayer = Vector3.Distance(transform.position, attack_location);
             
+            //if(dist1 > 15) attack_location = seek_victim();
 
             if(dist1 < 2)
             {
@@ -163,7 +164,11 @@ public class ZombieMove : MonoBehaviour
 
     private Vector3 seek_victim()
     {
-        Vector3 hvMove = new Vector3(0,0,0);
-        return hvMove;
+
+        Transform respawn = GameObject.FindGameObjectWithTag ("Civilian").GetComponent<Transform> ();
+        double dist_temp = Vector3.Distance(transform.position, respawn.transform.position);
+
+        if(dist_temp <= 10) return respawn.transform.position;
+        return attack_location;
     }
 }
