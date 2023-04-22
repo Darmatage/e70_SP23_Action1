@@ -12,6 +12,7 @@ TagManager:
   - Info
   - Door
   - GameHandler
+  - Pickup
   layers:
   - Default
   - TransparentFX

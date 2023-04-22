@@ -39,7 +39,7 @@ public class ZombieMove : MonoBehaviour
 
     void zombify()
     {
-        health = str_lvl * 2;
+        health = str_lvl*str_lvl * 2;
         base_speed = 1 / ((float)(str_lvl + 1));
     }
 
@@ -59,7 +59,7 @@ public class ZombieMove : MonoBehaviour
             double DistToPlayer = Vector3.Distance(transform.position, attack_location);
             
 
-            if(dist1 < 3)
+            if(dist1 < 2)
             {
                 attack_location = target.position;
                 hunt = true;
@@ -71,7 +71,7 @@ public class ZombieMove : MonoBehaviour
                 hunt = true;
             }
 
-            if(DistToPlayer > 2)
+            if(DistToPlayer > 1.5f)
             {
                 hunt = true;
             }
@@ -154,7 +154,7 @@ public class ZombieMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" && zombiemode)
         {
-            gameHandler.playerGetHit(1);
+            gameHandler.playerGetHit(str_lvl);
             daze = 100;
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;

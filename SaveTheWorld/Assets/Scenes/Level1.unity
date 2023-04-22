@@ -101131,6 +101131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUpBoost_Ammo
       objectReference: {fileID: 0}
+    - target: {fileID: 3456270289571256238, guid: 497e42aea186d4d07be4ba7e80cbdf8e, type: 3}
+      propertyPath: m_TagString
+      value: Pickup
+      objectReference: {fileID: 0}
     - target: {fileID: 3456270289571256239, guid: 497e42aea186d4d07be4ba7e80cbdf8e, type: 3}
       propertyPath: gameHandler
       value: 
@@ -101808,6 +101812,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Info
       objectReference: {fileID: 0}
+    - target: {fileID: 4081570400902167931, guid: 76d7ea7292c9be645ae5a7e6cda5bc15, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d7ea7292c9be645ae5a7e6cda5bc15, type: 3}
 --- !u!1001 &4808433982462806621
@@ -101817,10 +101825,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 916665155514757004, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
-      propertyPath: mixer
-      value: 
-      objectReference: {fileID: 24100000, guid: ee31edc6e8c6e47079b7e5da310d2209, type: 2}
     - target: {fileID: 916665155514757004, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: Bullet
       value: 
@@ -101833,10 +101837,6 @@ PrefabInstance:
       propertyPath: rescueText
       value: 
       objectReference: {fileID: 1389014835}
-    - target: {fileID: 916665155514757004, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
-      propertyPath: isDefending
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 916665155514757004, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: pauseMenuUI
       value: 

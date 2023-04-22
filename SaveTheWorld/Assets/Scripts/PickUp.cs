@@ -17,7 +17,7 @@ public class PickUp : MonoBehaviour{
 
 
       void Start(){
-            gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+            //gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
             //playerPowerupVFX = GameObject.FindWithTag("Player").GetComponent<playerVFX>(); 
       }
 

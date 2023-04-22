@@ -111,8 +111,8 @@ public class GameHandler : MonoBehaviour {
                         // player.GetComponent<PlayerHurt>().playerHit();       //play GetHit animation 
                   } 
             } 
-
-           if (playerHealth > StartPlayerHealth){
+            
+           if (playerHealth > StartPlayerHealth*2){
                   playerHealth = StartPlayerHealth; 
                   updateStatsDisplay();
             }

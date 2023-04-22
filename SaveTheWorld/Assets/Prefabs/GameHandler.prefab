@@ -44,7 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e0fe991c551478fa55db537de41f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPlayerHealth: 100
+  pauseMenuUI: {fileID: 0}
+  mixer: {fileID: 24100000, guid: ee31edc6e8c6e47079b7e5da310d2209, type: 2}
+  StartPlayerHealth: 10
   healthText: {fileID: 0}
+  rescueText: {fileID: 0}
+  ammoText: {fileID: 0}
+  ammo: 10
+  StartPlayerAmmo: 10
   tokensText: {fileID: 0}
   isDefending: 0
