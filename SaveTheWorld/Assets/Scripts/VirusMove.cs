@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Virusmove : MonoBehaviour
+public class VirusMove : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isfired;
