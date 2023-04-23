@@ -170,5 +170,6 @@ public class ZombieMove : MonoBehaviour
 
         if(dist_temp <= 10) return respawn.transform.position;
         return attack_location;
+        
     }
 }
