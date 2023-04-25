@@ -76,7 +76,7 @@ MonoBehaviour:
   isHealthPickUp: 0
   healthBoost: 5
   isAmmoPickUp: 1
-  ammoBoost: 5
+  ammoBoost: 10
 --- !u!1 &3456270290793326410
 GameObject:
   m_ObjectHideFlags: 0

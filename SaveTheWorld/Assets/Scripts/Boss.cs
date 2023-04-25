@@ -6,7 +6,7 @@ using System;
 public class Boss : MonoBehaviour
 {
     private int str_lvl = 1;
-    private float speed = 5.0f;
+    private float speed = 7.0f;
     private float base_speed;
     private float attack;
     public float health = 20;
@@ -88,7 +88,7 @@ public class Boss : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            gameHandler.playerGetHit(str_lvl);
+            gameHandler.playerGetHit(str_lvl*5);
             framecount = seek_and_destroy;
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;

@@ -80,7 +80,7 @@ public class ZombieMove : MonoBehaviour
             if(hunt)
             {
                 angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
-                speed = 6.0f * base_speed;
+                speed = 7.0f * base_speed;
                 if(DistToPlayer < 1)
                 {
                     hunt = false;
@@ -155,7 +155,7 @@ public class ZombieMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" && zombiemode)
         {
-            gameHandler.playerGetHit(str_lvl);
+            gameHandler.playerGetHit(str_lvl*5);
             daze = 100;
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;

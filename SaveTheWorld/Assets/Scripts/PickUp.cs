@@ -9,10 +9,10 @@ public class PickUp : MonoBehaviour{
       public GameHandler gameHandler;
       //public playerVFX playerPowerupVFX; 
       public bool isHealthPickUp = true;
-      public int healthBoost = 5;
+      public int healthBoost = 25;
 
       public bool isAmmoPickUp = false;
-      public int ammoBoost = 5;
+      public int ammoBoost = 10;
 
 
 

@@ -7,6 +7,8 @@ public class compass : MonoBehaviour
 {
     private Transform origin;
     private Transform target;
+    public GameObject[] nextlocation;
+    private int location = 0;
     private float angle;
     private Vector3 null_vector = new Vector3(0,0,0);
 
@@ -20,9 +22,19 @@ public class compass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(nextlocation.Length != 0)
+        {
+            GameObject temp = nextlocation[location];
+            target = temp.transform;
+            if(Vector3.Distance(origin.position, target.position) < 2 && location < nextlocation.Length-1)
+            {
+                location ++;
+            }
+        }
+
         float angle = Mathf.Atan2(target.position.y - origin.position.y, target.position.x - origin.position.x) * Mathf.Rad2Deg -90f;
         Vector3 front = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-        transform.position = origin.position + front *4.0f;
+        transform.position = origin.position + front *2.5f;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }

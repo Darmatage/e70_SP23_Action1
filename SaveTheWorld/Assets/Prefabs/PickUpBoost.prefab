@@ -74,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameHandler: {fileID: 0}
   isHealthPickUp: 1
-  healthBoost: 5
+  healthBoost: 20
   isAmmoPickUp: 0
   ammoBoost: 5
 --- !u!1 &3456270290793326410
