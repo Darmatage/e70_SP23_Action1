@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
   mixer: {fileID: 24100000, guid: ee31edc6e8c6e47079b7e5da310d2209, type: 2}
-  StartPlayerHealth: 10
+  StartPlayerHealth: 100
   healthText: {fileID: 0}
   rescueText: {fileID: 0}
   ammoText: {fileID: 0}

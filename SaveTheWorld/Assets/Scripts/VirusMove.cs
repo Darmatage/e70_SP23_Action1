@@ -28,7 +28,7 @@ public class VirusMove : MonoBehaviour
         if(life <= 0) Destroy (gameObject);
         life--;
         Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-        transform.position = transform.position + hvMove * 5f * Time.deltaTime;
+        transform.position = transform.position + hvMove * 5.5f * Time.deltaTime;
 
     }
 

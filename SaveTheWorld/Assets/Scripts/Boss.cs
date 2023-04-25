@@ -25,6 +25,7 @@ public class Boss : MonoBehaviour
 
     public GameObject virus;
     public GameObject zombie;
+    public GameObject pointer;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,10 @@ public class Boss : MonoBehaviour
         float dist = Vector3.Distance(attack_location,transform.position);
         float DistToPlayer = Vector3.Distance(target.transform.position,transform.position);
 
+        Vector3 fronter = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+        pointer.transform.position = transform.position + fronter;
+        pointer.transform.rotation = Quaternion.Euler(0, 0, angle);
+
         if(DistToPlayer < 10.0f)
         {
             if(framecount < 5) attack_location = target.transform.position;
@@ -52,7 +57,7 @@ public class Boss : MonoBehaviour
             else angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
             if(framecount > seek_and_cough && framecount <= cough_max)
             {
-                if(framecount%11 == 0)
+                if(framecount%5 == 0)
                 {
                     GameObject clone = Instantiate(virus) as GameObject;
                     Vector3 front = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
@@ -77,6 +82,7 @@ public class Boss : MonoBehaviour
                 //GameObject clone = Instantiate(zombie) as GameObject;
                 zombie.SetActive(true);
                 zombie.transform.position = transform.position;
+                Destroy(pointer);
                 Destroy(gameObject);
             }
         }

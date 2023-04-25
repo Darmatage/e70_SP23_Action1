@@ -19,8 +19,8 @@ public class GameHandler : MonoBehaviour {
 
 
       private GameObject player;
-      public static int playerHealth = 10;
-      public int StartPlayerHealth = 10;
+      public static int playerHealth = 100;
+      public int StartPlayerHealth = 100;
       public GameObject healthText;
       public GameObject rescueText;
       public GameObject ammoText;
@@ -112,7 +112,7 @@ public class GameHandler : MonoBehaviour {
                   } 
             } 
             
-           if (playerHealth > StartPlayerHealth*2){
+           if (playerHealth > StartPlayerHealth+20){
                   playerHealth = StartPlayerHealth; 
                   updateStatsDisplay();
             }
