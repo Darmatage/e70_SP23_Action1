@@ -73464,11 +73464,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 497e42aea186d4d07be4ba7e80cbdf8e, type: 3}
---- !u!1 &795647215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3621773442590737879, guid: 4d3634f12d920ce41bd91d6a72c3945b, type: 3}
-  m_PrefabInstance: {fileID: 1441535717}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &833828529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6971109254830778486, guid: 2e2c57abd4fe1ff499f45e6d433afd08, type: 3}
@@ -101986,11 +101981,11 @@ PrefabInstance:
       objectReference: {fileID: 1677015512}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: narrations.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: nextlocation.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: narrations.Array.data[0]
@@ -101999,23 +101994,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: narrations.Array.data[1]
-      value: Vaccinate the zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
-      propertyPath: narrations.Array.data[2]
       value: checkpoint 2
       objectReference: {fileID: 0}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
-      propertyPath: narrations.Array.data[3]
+      propertyPath: narrations.Array.data[2]
       value: checkpoint 3
       objectReference: {fileID: 0}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
-      propertyPath: narrations.Array.data[4]
+      propertyPath: narrations.Array.data[3]
       value: checkpoint 4
       objectReference: {fileID: 0}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
-      propertyPath: narrations.Array.data[5]
+      propertyPath: narrations.Array.data[4]
       value: checkpoint 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
+      propertyPath: narrations.Array.data[5]
+      value: Helipad
       objectReference: {fileID: 0}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: narrations.Array.data[6]
@@ -102028,23 +102023,23 @@ PrefabInstance:
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: nextlocation.Array.data[1]
       value: 
-      objectReference: {fileID: 795647215}
+      objectReference: {fileID: 992546580}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: nextlocation.Array.data[2]
       value: 
-      objectReference: {fileID: 992546580}
+      objectReference: {fileID: 852578232}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: nextlocation.Array.data[3]
       value: 
-      objectReference: {fileID: 852578232}
+      objectReference: {fileID: 410235931}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: nextlocation.Array.data[4]
       value: 
-      objectReference: {fileID: 410235931}
+      objectReference: {fileID: 1030655100}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: nextlocation.Array.data[5]
       value: 
-      objectReference: {fileID: 1030655100}
+      objectReference: {fileID: 498759572}
     - target: {fileID: 4657509372367116306, guid: 79dc5a416cb99484b86b93105bda60ee, type: 3}
       propertyPath: nextlocation.Array.data[6]
       value: 
