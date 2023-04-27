@@ -50,6 +50,7 @@ public class ZombieMove : MonoBehaviour
         //Random rnd = new Random();
         float dist1 = Vector3.Distance(transform.position, target.transform.position);
         if(reinfect > 0) reinfect--;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
 
         if(zombiemode)
         {
