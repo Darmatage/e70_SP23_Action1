@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI; 
 
 public class compass : MonoBehaviour
 {
     private Transform origin;
     private Transform target;
     public GameObject[] nextlocation;
+    public GameHandler gameHandler;
+    public string[] narrations;
     private int location = 0;
     private float angle;
     private Vector3 null_vector = new Vector3(0,0,0);
@@ -25,6 +28,10 @@ public class compass : MonoBehaviour
         if(nextlocation.Length != 0)
         {
             GameObject temp = nextlocation[location];
+            gameHandler.change_objectives(narrations[location]);
+            //Text ammoTextTemp = DialogText.GetComponent<Text>();
+            //ammoTextTemp.text = narrations[location];
+
             target = temp.transform;
             if(Vector3.Distance(origin.position, target.position) < 2 && location < nextlocation.Length-1)
             {

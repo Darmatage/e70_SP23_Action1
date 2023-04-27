@@ -39,6 +39,7 @@ public class GameHandler : MonoBehaviour {
       //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true; 
 
       private string sceneName;
+      private string objectives;
 
       // Used for PauseMenu
       void Awake (){ 
@@ -142,7 +143,7 @@ public class GameHandler : MonoBehaviour {
             ammoTextTemp.text = "Ammo: " + ammo; 
 
             Text tokensTextTemp = tokensText.GetComponent<Text>();
-            tokensTextTemp.text = "GOLD: " + gotTokens;
+            tokensTextTemp.text = objectives;
       } 
 
       public void playerDies(){
@@ -203,6 +204,12 @@ public class GameHandler : MonoBehaviour {
 
       public void updatedisplay()
       {
+            updateStatsDisplay();
+      }
+
+      public void change_objectives(string s)
+      {
+            objectives = s;
             updateStatsDisplay();
       }
 }
