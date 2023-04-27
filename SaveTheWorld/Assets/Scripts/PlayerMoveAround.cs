@@ -22,6 +22,7 @@ public class PlayerMoveAround : MonoBehaviour {
       public Rigidbody2D rb;
       public GameObject Bullet;
       private int reload;
+      private bool FaceRight = false; //remember to turn this into faceleft
 
       void Start(){
            //anim = gameObject.GetComponentInChildren<Animator>();
@@ -37,6 +38,7 @@ public class PlayerMoveAround : MonoBehaviour {
 
             // Leo's notes add figure out and modify the player move so we can get angular movements
             Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+
             //Vector3 hvMove = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
             if (isAlive == true)
             {
@@ -61,16 +63,36 @@ public class PlayerMoveAround : MonoBehaviour {
                   //transform.position = newPosition;
             }
             
+            mousePosition = Input.mousePosition;
+            Vector2 mouse = new Vector2(mousePosition.x - Screen.width/2, mousePosition.y- Screen.height/2);
+            float angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg -90f;
+
             if (Input.GetMouseButtonDown(0)/*&& reload <= 0*/)
             {
                   reload = 2;
                   GameObject clone = Instantiate(Bullet) as GameObject;
                   clone.SetActive(true);
+                  clone.transform.rotation = Quaternion.Euler(0, 0, angle);
             }
 
-            mousePosition = Input.mousePosition;
-            Vector2 mouse = new Vector2(mousePosition.x - Screen.width/2, mousePosition.y- Screen.height/2);
-            float angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg -90f;
+            //mousePosition = Input.mousePosition;
+            //Vector2 mouse = new Vector2(mousePosition.x - Screen.width/2, mousePosition.y- Screen.height/2);
+            //float angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg -90f;
             //transform.rotation = Quaternion.Euler(0, 0, angle);
+            
+            if ((hvMove.x >0 && !FaceRight) || (hvMove.x <0 && FaceRight)){
+                  playerTurn();
+            }
+      }
+
+      
+      private void playerTurn(){
+            // NOTE: Switch player facing label
+            FaceRight = !FaceRight;
+
+            // NOTE: Multiply player's x local scale by -1.
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
       }
 }
