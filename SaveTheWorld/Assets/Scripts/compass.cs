@@ -29,14 +29,20 @@ public class compass : MonoBehaviour
         {
             GameObject temp = nextlocation[location];
             gameHandler.change_objectives(narrations[location]);
+            if(temp != null)
+            {
+                target = temp.transform;
+                if(Vector3.Distance(origin.position, target.position) < 2 && location < nextlocation.Length-1)
+                {
+                    location ++;
+                }
+            }
+            else
+            {
+                location++;
+            }
             //Text ammoTextTemp = DialogText.GetComponent<Text>();
             //ammoTextTemp.text = narrations[location];
-
-            target = temp.transform;
-            if(Vector3.Distance(origin.position, target.position) < 2 && location < nextlocation.Length-1)
-            {
-                location ++;
-            }
         }
 
         float angle = Mathf.Atan2(target.position.y - origin.position.y, target.position.x - origin.position.x) * Mathf.Rad2Deg -90f;
