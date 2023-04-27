@@ -21,6 +21,7 @@ public class PlayerMoveAround : MonoBehaviour {
       //public int weapon_grade; // the level of the weapon
       public Rigidbody2D rb;
       public GameObject Bullet;
+      public GameObject arm;
       private int reload;
       private bool FaceRight = false; //remember to turn this into faceleft
 
@@ -67,6 +68,12 @@ public class PlayerMoveAround : MonoBehaviour {
             Vector2 mouse = new Vector2(mousePosition.x - Screen.width/2, mousePosition.y- Screen.height/2);
             float angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg -90f;
 
+            if(arm != null) 
+            {
+                  arm.transform.position = transform.position;
+                  arm.transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+
             if (Input.GetMouseButtonDown(0)/*&& reload <= 0*/)
             {
                   reload = 2;
@@ -94,5 +101,13 @@ public class PlayerMoveAround : MonoBehaviour {
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+
+            if(arm != null)
+            {
+                  Vector3 theScale1 = arm.transform.localScale;
+                  theScale1.x *= -1;
+                  arm.transform.localScale = theScale1;
+            }
+
       }
 }
