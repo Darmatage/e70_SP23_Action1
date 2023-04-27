@@ -71,6 +71,6 @@ public class PlayerMoveAround : MonoBehaviour {
             mousePosition = Input.mousePosition;
             Vector2 mouse = new Vector2(mousePosition.x - Screen.width/2, mousePosition.y- Screen.height/2);
             float angle = Mathf.Atan2(mouse.y, mouse.x) * Mathf.Rad2Deg -90f;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            //transform.rotation = Quaternion.Euler(0, 0, angle);
       }
 }
