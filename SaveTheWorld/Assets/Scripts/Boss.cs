@@ -57,7 +57,7 @@ public class Boss : MonoBehaviour
             else angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
             if(framecount > seek_and_cough && framecount <= cough_max)
             {
-                if(framecount%11 == 0)
+                if(framecount%5 == 0)
                 {
                     GameObject clone = Instantiate(virus) as GameObject;
                     Vector3 front = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
