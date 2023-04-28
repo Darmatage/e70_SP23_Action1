@@ -116,6 +116,8 @@ public class ZombieMove : MonoBehaviour
                 Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
                 transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
+
+            if(reinfect == 0) StartCoroutine(sick());
         }
 
         //if(hunt) targeting();
@@ -150,6 +152,11 @@ public class ZombieMove : MonoBehaviour
                 speed = 2;
                 reinfect = 750;
             }
+            StartCoroutine(collideFlash());
+            //Color32 c = spriteRenderer.material.color;
+            //spriteRenderer.material.SetColor("_Color", Color.red);
+            //spriteRenderer.material.color = c;
+            //collideFlash();
         }
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
         {
@@ -163,6 +170,22 @@ public class ZombieMove : MonoBehaviour
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
         }
+    }
+
+    IEnumerator collideFlash() 
+    {
+
+        spriteRenderer.material.color =  Color.red;
+        yield return new WaitForSeconds(0.1f);  
+        spriteRenderer.material.color = Color.white;         
+    }
+
+    IEnumerator sick() 
+    {
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.material.color =  Color.green;
+        yield return new WaitForSeconds(0.1f);  
+        spriteRenderer.material.color = Color.white;         
     }
 
     private Vector3 seek_victim()

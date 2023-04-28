@@ -18,6 +18,7 @@ public class compass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //cam = GetComponent<Camera>();
         origin = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
         target = GameObject.FindGameObjectWithTag ("Door").GetComponent<Transform> ();
     }
@@ -47,7 +48,7 @@ public class compass : MonoBehaviour
 
         float angle = Mathf.Atan2(target.position.y - origin.position.y, target.position.x - origin.position.x) * Mathf.Rad2Deg -90f;
         Vector3 front = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-        transform.position = origin.position + front *2.5f;
+        //transform.position = origin.position + front *2.5f;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }
