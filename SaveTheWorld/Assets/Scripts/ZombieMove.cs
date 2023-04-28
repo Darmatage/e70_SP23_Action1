@@ -24,6 +24,8 @@ public class ZombieMove : MonoBehaviour
     //private float rate = 0.99f;
     private float daze = 0;
 
+    private int Identity;
+
     public Sprite Human;
     public Sprite Zombie;
     public SpriteRenderer spriteRenderer;
