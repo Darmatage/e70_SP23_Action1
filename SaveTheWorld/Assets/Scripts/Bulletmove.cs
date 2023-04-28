@@ -37,7 +37,7 @@ public class Bulletmove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "CheckPoint" && collision.gameObject.tag != "Pickup" && collision.gameObject.tag != "Water") 
+        if (collision.gameObject.tag != "CheckPoint" && collision.gameObject.tag != "Pickup" && collision.gameObject.tag != "Water" && collision.gameObject.tag != "Player") 
         {
             Destroy(gameObject);
         }
