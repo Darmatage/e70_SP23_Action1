@@ -102159,6 +102159,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS
       objectReference: {fileID: 0}
+    - target: {fileID: 6593990878532899525, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593990878532899525, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593990878532899525, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593990878532899525, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7752550116574918864, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: m_TagString
       value: GameHandler
