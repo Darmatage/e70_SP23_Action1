@@ -1217,6 +1217,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2813322217801710707, guid: 16401697f80004c078c12c875d765978, type: 3}
   m_PrefabInstance: {fileID: 2728219507015802956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2613702520752548697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 115169135205829397, guid: 16401697f80004c078c12c875d765978, type: 3}
+  m_PrefabInstance: {fileID: 2728219507015802956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8362657450958375992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1292,6 +1297,10 @@ PrefabInstance:
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 204483363405241406}
+    - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
+      propertyPath: ObjectiveTextpause
+      value: 
+      objectReference: {fileID: 2613702520752548697}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
 --- !u!114 &916665155514757004 stripped

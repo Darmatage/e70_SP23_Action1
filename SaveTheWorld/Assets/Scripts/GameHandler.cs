@@ -24,6 +24,7 @@ public class GameHandler : MonoBehaviour {
       public GameObject healthText;
       public GameObject rescueText;
       public GameObject ammoText;
+      public GameObject ObjectiveTextpause;
 
       public static float rescued = 0.0f; // Leo added this
       public int ammo = 10; // Leo added this
@@ -145,6 +146,9 @@ public class GameHandler : MonoBehaviour {
 
             Text tokensTextTemp = tokensText.GetComponent<Text>();
             tokensTextTemp.text = objectives;
+
+            Text ObjectiveTextpauseTemp = ObjectiveTextpause.GetComponent<Text>();
+            ObjectiveTextpauseTemp.text = objectives;
       } 
 
       public void playerDies(){
@@ -200,7 +204,7 @@ public class GameHandler : MonoBehaviour {
 
       public bool can_shoot() // changes the bullet count
       {
-            return ammo > 0;
+            return ammo > 0 && !(GameisPaused);
       }
 
       public void updatedisplay()
