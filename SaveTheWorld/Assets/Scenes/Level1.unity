@@ -73893,7 +73893,7 @@ GameObject:
   - component: {fileID: 1031054396}
   m_Layer: 0
   m_Name: Heli_pad_art
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
