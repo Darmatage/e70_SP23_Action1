@@ -15,8 +15,11 @@ public class Bulletmove : MonoBehaviour
     private int life = 100;
     public GameHandler gameHandler;
 
-    void Start()
-    {
+	void Awake(){
+		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+	}
+
+    void Start(){
         if(!gameHandler.can_shoot()) Destroy (gameObject);
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
         angle = (float)transform.eulerAngles.z;

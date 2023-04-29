@@ -6,7 +6,7 @@ using System;
 
 public class PickUp : MonoBehaviour{
 
-      public GameHandler gameHandler;
+      private GameHandler gameHandler;
       //public playerVFX playerPowerupVFX; 
       public bool isHealthPickUp = true;
       public int healthBoost = 25;
@@ -17,7 +17,7 @@ public class PickUp : MonoBehaviour{
 
 
       void Start(){
-            //gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+            gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
             //playerPowerupVFX = GameObject.FindWithTag("Player").GetComponent<playerVFX>(); 
       }
 

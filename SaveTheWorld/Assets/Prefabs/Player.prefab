@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: f08664c8c358b574dbac4242034b8e07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3844382490979153000}
   - component: {fileID: 3844382490979153001}
   - component: {fileID: 3844382490979153006}
+  - component: {fileID: 4753460891306935662}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -185,5 +186,32 @@ MonoBehaviour:
   angle: 0
   health: 0
   rb: {fileID: 0}
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 2421530581578069442, guid: 6f2df26b0a4638043952eed47ca0ca91, type: 3}
   arm: {fileID: 0}
+--- !u!114 &4753460891306935662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844382490979153007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046b5515c69e0c646b88910fb4676e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextLevel: MainMenu
+  playerArt: {fileID: 0}
+  playerGunArt: {fileID: 0}
+  animStartCoptor: {fileID: 0}
+  animEndCoptor: {fileID: 0}
+  startCopter: {fileID: 0}
+  startC_ground: {fileID: 0}
+  startC_sky: {fileID: 0}
+  endCopter: {fileID: 0}
+  endCopterSeat: {fileID: 0}
+  endC_sky: {fileID: 0}
+  moveSpeed: 1
+  startCopterDown: 0
+  startCopterUp: 0
+  endCopterUp: 0

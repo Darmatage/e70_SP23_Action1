@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: ad69a2dbd7d8dcf42b03e76327be8fb6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 185625b355cde4760b2dc105e4d6ab9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 3342523947243345334}
   - component: {fileID: 3342523947243345335}
   - component: {fileID: 3342523947243345332}
-  - component: {fileID: 3342523947243345333}
   - component: {fileID: 8408081507165930497}
+  - component: {fileID: 3342523947243345333}
   m_Layer: 0
   m_Name: Super_Zombie
   m_TagString: Zombie
@@ -167,25 +167,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3342523947243345333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3342523947243345330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551c0d1028cafe142b2eded7c6377a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  str_lvl: 2
-  health: 0
-  gameHandler: {fileID: 0}
-  Human: {fileID: 21300000, guid: 0fa6fe6d01e6d394ca27732947977db4, type: 3}
-  Zombie: {fileID: 21300000, guid: 185625b355cde4760b2dc105e4d6ab9e, type: 3}
-  spriteRenderer: {fileID: 3342523947066881841}
-  rb2D: {fileID: 0}
 --- !u!61 &8408081507165930497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,3 +193,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3342523947243345333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342523947243345330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551c0d1028cafe142b2eded7c6377a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  str_lvl: 2
+  health: 0
+  gameHandler: {fileID: 0}
+  Human: {fileID: 21300000, guid: 0fa6fe6d01e6d394ca27732947977db4, type: 3}
+  Zombie: {fileID: 21300000, guid: 185625b355cde4760b2dc105e4d6ab9e, type: 3}
+  spriteRenderer: {fileID: 3342523947066881841}
+  rb2D: {fileID: 0}

@@ -167,6 +167,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3999690287849867442}
     m_Modifications:
+    - target: {fileID: 928821872938024529, guid: 601c69897e564f24ca0a077b6720073a, type: 3}
+      propertyPath: m_Name
+      value: KopterEnd_art
+      objectReference: {fileID: 0}
+    - target: {fileID: 928821872938024532, guid: 601c69897e564f24ca0a077b6720073a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 928821874383381586, guid: 601c69897e564f24ca0a077b6720073a, type: 3}
       propertyPath: m_Name
       value: HelicopterEnd
@@ -264,6 +272,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3999690287849867442}
     m_Modifications:
+    - target: {fileID: 928821872938024529, guid: 601c69897e564f24ca0a077b6720073a, type: 3}
+      propertyPath: m_Name
+      value: KopterStart_art
+      objectReference: {fileID: 0}
     - target: {fileID: 928821874383381586, guid: 601c69897e564f24ca0a077b6720073a, type: 3}
       propertyPath: m_Name
       value: HelicopterStart

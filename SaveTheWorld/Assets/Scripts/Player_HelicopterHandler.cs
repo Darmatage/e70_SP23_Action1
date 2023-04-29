@@ -73,7 +73,7 @@ public class Player_HelicopterHandler : MonoBehaviour{
 	IEnumerator StartCopter(){
 		startCopterDown = true;
 		//copterSoundFast.Play();
-		yield return new WaitForSeconds(moveSpeed *2);
+		yield return new WaitForSeconds(moveSpeed *2f);
 		startCopterDown = false;
 		//copterSoundFast.Stop();
 		
@@ -88,7 +88,7 @@ public class Player_HelicopterHandler : MonoBehaviour{
 		
 		startCopterUp = true;
 		//copterSoundFast.Play();
-		yield return new WaitForSeconds(moveSpeed *2);
+		yield return new WaitForSeconds(moveSpeed *2f);
 		startCopterUp = false;
 		//copterSound.Stop();
 		Destroy(startCopter);
@@ -96,13 +96,16 @@ public class Player_HelicopterHandler : MonoBehaviour{
 	
 
 	IEnumerator EndCopter(){
+		//put a copy of slow audio on endCopter, with small radius
+		//endCopter.GetComponent<AudioSource>().Stop();
 		//copterSoundFast.Play();
 		//playerMoveScript.enabled = false;
 		transform.position = endCopterSeat.transform.position;
 		transform.parent = endCopterSeat.transform;
+		gameObject.GetComponent<Collider2D>().enabled = false;
 		animEndCoptor.SetBool("slow", false);
 		endCopterUp = true;
-		yield return new WaitForSeconds(moveSpeed *2);
+		yield return new WaitForSeconds(moveSpeed *2f);
 		SceneManager.LoadScene(NextLevel);
 	}
 	

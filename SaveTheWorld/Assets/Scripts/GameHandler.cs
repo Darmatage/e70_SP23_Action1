@@ -30,8 +30,8 @@ public class GameHandler : MonoBehaviour {
       public int StartPlayerAmmo = 10;
 
 
-      public static int gotTokens = 0; 
-      public GameObject tokensText; 
+      //public static int gotTokens = 0; 
+      //public GameObject tokensText; 
 
       public bool isDefending = false; 
 
@@ -96,11 +96,12 @@ public class GameHandler : MonoBehaviour {
             mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20); 
             volumeLevel = sliderValue; 
         } 
-
+/*
       public void playerGetTokens(int newTokens){
             gotTokens += newTokens;
             updateStatsDisplay();
       }
+*/
 
       public void playerGetHit(int damage){
            if (isDefending == false){
@@ -142,8 +143,8 @@ public class GameHandler : MonoBehaviour {
             Text ammoTextTemp = ammoText.GetComponent<Text>();// i added this in
             ammoTextTemp.text = "Ammo: " + ammo; 
 
-            Text tokensTextTemp = tokensText.GetComponent<Text>();
-            tokensTextTemp.text = objectives;
+            //Text tokensTextTemp = tokensText.GetComponent<Text>();
+            //tokensTextTemp.text = objectives;
       } 
 
       public void playerDies(){

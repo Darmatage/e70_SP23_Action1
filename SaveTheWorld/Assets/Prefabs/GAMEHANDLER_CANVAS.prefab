@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4171854040834478592}
   - component: {fileID: 4567208322132847206}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text_RESCUED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HEALTH: ???'
+  m_Text: 'SAVED: ???'
 --- !u!1 &3165874851879550243
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 3859800308488128026}
   - component: {fileID: 5211011088365428174}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text_HEALTH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,7 +192,7 @@ RectTransform:
   m_Children:
   - {fileID: 7758772836032814531}
   m_Father: {fileID: 340099409404345075}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -303,7 +303,7 @@ RectTransform:
   m_Children:
   - {fileID: 7934216148569380975}
   m_Father: {fileID: 340099409404345075}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -455,7 +455,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 340099409404345075}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -536,7 +536,7 @@ RectTransform:
   m_Children:
   - {fileID: 7360532798193606513}
   m_Father: {fileID: 340099409404345075}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -612,7 +612,7 @@ RectTransform:
   m_Children:
   - {fileID: 9183095174887603320}
   m_Father: {fileID: 340099409404345075}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -833,12 +833,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 952872375035612414}
-  - {fileID: 4866583640104091077}
   - {fileID: 3967478627741214337}
   - {fileID: 4636335877156114678}
-  - {fileID: 204483363405241407}
   - {fileID: 6563565577016329807}
   - {fileID: 1445044778228897563}
+  - {fileID: 4866583640104091077}
+  - {fileID: 204483363405241407}
   m_Father: {fileID: 2222565926698809344}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 8255273504598758930}
   - component: {fileID: 6146350658028547604}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text_AMMO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1054,7 +1054,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HEALTH: ???'
+  m_Text: 'AMMO: ???'
 --- !u!1001 &2728219507015802956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1088,27 +1088,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2813322216632648600, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2813322216632648600, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2813322216632648600, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2813322217137172326, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2813322217137172326, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2813322217801710706, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813322217801710706, guid: 16401697f80004c078c12c875d765978, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2813322217801710707, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_Pivot.x
@@ -1120,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2813322217801710707, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2813322217801710707, guid: 16401697f80004c078c12c875d765978, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1204,6 +1208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16401697f80004c078c12c875d765978, type: 3}
+--- !u!1 &204483363405241406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2813322217801710706, guid: 16401697f80004c078c12c875d765978, type: 3}
+  m_PrefabInstance: {fileID: 2728219507015802956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &204483363405241407 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2813322217801710707, guid: 16401697f80004c078c12c875d765978, type: 3}
@@ -1265,13 +1274,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 8791065329248601590}
+    - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
       propertyPath: healthText
       value: 
       objectReference: {fileID: 3165874851879550243}
     - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
+      propertyPath: rescueText
+      value: 
+      objectReference: {fileID: 567326569603622670}
+    - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
       propertyPath: tokensText
       value: 
       objectReference: {fileID: 7583429478959035152}
+    - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 204483363405241406}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
 --- !u!114 &916665155514757004 stripped
