@@ -33,6 +33,8 @@ public class ZombieMove : MonoBehaviour
 
     void Start()
     {
+		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+		
         zombify();
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
         attack_location = transform.position;
