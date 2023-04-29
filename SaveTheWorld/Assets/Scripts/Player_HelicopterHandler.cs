@@ -97,7 +97,7 @@ public class Player_HelicopterHandler : MonoBehaviour{
 
 	IEnumerator EndCopter(){
 		//copterSoundFast.Play();
-		playerMoveScript.enabled = false;
+		//playerMoveScript.enabled = false;
 		transform.position = endCopterSeat.transform.position;
 		transform.parent = endCopterSeat.transform;
 		animEndCoptor.SetBool("slow", false);
