@@ -31,7 +31,7 @@ public class GameHandler : MonoBehaviour {
 
 
       //public static int gotTokens = 0; 
-      //public GameObject tokensText; 
+      public GameObject tokensText; 
 
       public bool isDefending = false; 
 
@@ -143,8 +143,8 @@ public class GameHandler : MonoBehaviour {
             Text ammoTextTemp = ammoText.GetComponent<Text>();// i added this in
             ammoTextTemp.text = "Ammo: " + ammo; 
 
-            //Text tokensTextTemp = tokensText.GetComponent<Text>();
-            //tokensTextTemp.text = objectives;
+            Text tokensTextTemp = tokensText.GetComponent<Text>();
+            tokensTextTemp.text = objectives;
       } 
 
       public void playerDies(){

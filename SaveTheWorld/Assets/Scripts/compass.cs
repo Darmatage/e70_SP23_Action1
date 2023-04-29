@@ -9,7 +9,7 @@ public class compass : MonoBehaviour
     private Transform origin;
     private Transform target;
     public GameObject[] nextlocation;
-    public GameHandler gameHandler;
+    private GameHandler gameHandler;
     public string[] narrations;
     private int location = 0;
     private float angle;
@@ -19,6 +19,7 @@ public class compass : MonoBehaviour
     void Start()
     {
         //cam = GetComponent<Camera>();
+        gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         origin = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
         target = GameObject.FindGameObjectWithTag ("Door").GetComponent<Transform> ();
     }

@@ -637,7 +637,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  gameHandler: {fileID: 916665155514757004}
   narrations:
   - Get to checkpoint 1
   - Get to checkpoint 2
@@ -1288,7 +1287,7 @@ PrefabInstance:
     - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
       propertyPath: tokensText
       value: 
-      objectReference: {fileID: 7583429478959035152}
+      objectReference: {fileID: 8146872711321216305}
     - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
       propertyPath: pauseMenuUI
       value: 
