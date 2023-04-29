@@ -73199,8 +73199,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708368011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.71, y: 0.17, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1042185115}
@@ -73247,7 +73247,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 200
   m_Sprite: {fileID: 228976761, guid: 1f36292857342b646a1c8822926937af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102370,25 +102370,65 @@ PrefabInstance:
       value: GameHandler
       objectReference: {fileID: 0}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: narrations.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: nextlocation.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: narrations.Array.data[1]
+      value: Vaccinate
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: narrations.Array.data[2]
+      value: Get to checkpoint 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: narrations.Array.data[3]
+      value: Get to checkpoint 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: narrations.Array.data[4]
+      value: Get to checkpoint 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: narrations.Array.data[5]
+      value: Get to checkpoint 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: narrations.Array.data[6]
+      value: Get to the Chopper (austrian accent)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: nextlocation.Array.data[0]
       value: 
       objectReference: {fileID: 833828529}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: nextlocation.Array.data[1]
       value: 
-      objectReference: {fileID: 992546580}
+      objectReference: {fileID: 329655699}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: nextlocation.Array.data[2]
       value: 
-      objectReference: {fileID: 852578232}
+      objectReference: {fileID: 992546580}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: nextlocation.Array.data[3]
       value: 
-      objectReference: {fileID: 410235931}
+      objectReference: {fileID: 852578232}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: nextlocation.Array.data[4]
       value: 
+      objectReference: {fileID: 410235931}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: nextlocation.Array.data[5]
+      value: 
       objectReference: {fileID: 1030655100}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: nextlocation.Array.data[6]
+      value: 
+      objectReference: {fileID: 498759572}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
 --- !u!1 &4808433982462806622 stripped
