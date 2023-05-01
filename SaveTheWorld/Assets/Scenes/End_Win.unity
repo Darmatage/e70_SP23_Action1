@@ -354,7 +354,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Congratulations! Your great thinking ang excellent marksmentship have allowed
+  m_Text: Congratulations! Your strategy and excellent marksmanship have allowed
     you to cure the infected people on the mountain.
 --- !u!222 &696939172
 CanvasRenderer:
