@@ -31,6 +31,8 @@ public class ZombieMove : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Rigidbody2D rb2D;
 
+    public Animator anim;
+
     void Start()
     {
 		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
@@ -58,6 +60,7 @@ public class ZombieMove : MonoBehaviour
 
         if(zombiemode)
         {
+            anim.enabled = true;
             spriteRenderer.sprite = Zombie;
             framecount = (framecount+1)%25;
 
@@ -84,6 +87,7 @@ public class ZombieMove : MonoBehaviour
 
             if(hunt)
             {
+                anim.Play("Zombie_attack");
                 angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
                 speed = 7.0f * base_speed;
                 if(DistToPlayer < 1)
@@ -93,6 +97,7 @@ public class ZombieMove : MonoBehaviour
             }
             else
             {
+                anim.Play("Zombie_walk");
                 speed = base_speed;
                 if(framecount == 0) angle += (Math.Abs(angle)%11 - 5)*5;
             }
@@ -119,7 +124,7 @@ public class ZombieMove : MonoBehaviour
                 transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
 
-            if(reinfect >= 10) StartCoroutine(sick());
+            if(reinfect <= 10) StartCoroutine(sick());
         }
 
         //if(hunt) targeting();
@@ -139,6 +144,7 @@ public class ZombieMove : MonoBehaviour
 
         if (collision.gameObject.tag == "Zombie" && !zombiemode && reinfect < 10) 
         {
+            StartCoroutine(transformed());
             zombiemode = true;
             gameObject.tag = "Zombie";
             zombify();
@@ -150,6 +156,7 @@ public class ZombieMove : MonoBehaviour
             if(health <= 0)
             {
                 zombiemode = false;
+                StartCoroutine(transformed());
                 gameObject.tag = "Civilian";
                 speed = 2;
                 reinfect = 750;
@@ -184,6 +191,14 @@ public class ZombieMove : MonoBehaviour
         spriteRenderer.material.color =  Color.red;
         yield return new WaitForSeconds(0.1f);  
         spriteRenderer.material.color = Color.white;         
+    }
+    
+    IEnumerator transformed() 
+    {
+        anim.enabled = true;
+        anim.Play("Zombie_rescued");
+        yield return new WaitForSeconds(1f);
+        anim.enabled = false;      
     }
 
     IEnumerator sick() 
