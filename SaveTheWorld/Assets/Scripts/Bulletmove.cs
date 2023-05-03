@@ -20,7 +20,7 @@ public class Bulletmove : MonoBehaviour
 	}
 
     void Start(){
-        if(!gameHandler.can_shoot()) Destroy (gameObject);
+        //if(!gameHandler.can_shoot()) Destroy (gameObject);
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
         angle = (float)transform.eulerAngles.z;
         Vector3 front = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);

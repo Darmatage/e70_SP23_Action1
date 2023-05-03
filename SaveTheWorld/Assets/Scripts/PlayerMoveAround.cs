@@ -26,9 +26,12 @@ public class PlayerMoveAround : MonoBehaviour {
       private bool FaceRight = false; //remember to turn this into faceleft
       public SpriteRenderer spriteRenderer;
 
+      private GameHandler gameHandler;
+      public AudioSource ShootingSFX;
+
       void Start(){
            //anim = gameObject.GetComponentInChildren<Animator>();
-           
+           gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
            rb2D = transform.GetComponent<Rigidbody2D>();
       }
 
@@ -75,12 +78,13 @@ public class PlayerMoveAround : MonoBehaviour {
                   arm.transform.rotation = Quaternion.Euler(0, 0, angle);
             }
 
-            if (Input.GetMouseButtonDown(0)/*&& reload <= 0*/)
+            if (Input.GetMouseButtonDown(0) && gameHandler.can_shoot() /*&& reload <= 0*/)
             {
                   reload = 2;
                   GameObject clone = Instantiate(Bullet) as GameObject;
                   clone.SetActive(true);
                   clone.transform.rotation = Quaternion.Euler(0, 0, angle);
+                  ShootingSFX.Play();
             }
 
             //mousePosition = Input.mousePosition;

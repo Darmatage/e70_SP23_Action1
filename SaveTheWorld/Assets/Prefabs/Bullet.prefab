@@ -183,3 +183,4 @@ MonoBehaviour:
   angle: 0
   range: 0
   gameHandler: {fileID: 0}
+  ShootingSFX: {fileID: 0}
