@@ -119,7 +119,7 @@ public class ZombieMove : MonoBehaviour
                 transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
 
-            if(reinfect == 0) StartCoroutine(sick());
+            if(reinfect >= 10) StartCoroutine(sick());
         }
 
         //if(hunt) targeting();

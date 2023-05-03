@@ -13,11 +13,12 @@ public class VirusMove : MonoBehaviour
     private Transform target;
     private Vector3 origin;
     private int life = 500;
-    public GameHandler gameHandler;
+    private GameHandler gameHandler;
 
     void Start()
     {
         angle = (float)transform.eulerAngles.z;
+        gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         //Vector3 front = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
         //transform.position = origin + front *1.0f;
     }
@@ -34,7 +35,7 @@ public class VirusMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "CheckPoint" && collision.gameObject.tag != "Pickup") 
+        if (collision.gameObject.tag != "CheckPoint" && collision.gameObject.tag != "Pickup" && collision.gameObject.tag != "Zombie") 
         {
             if(collision.gameObject.tag == "Player")
             {

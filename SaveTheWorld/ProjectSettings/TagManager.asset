@@ -15,6 +15,7 @@ TagManager:
   - Pickup
   - Water
   - EndCopter
+  - ZombieBoss
   layers:
   - Default
   - TransparentFX
