@@ -172,6 +172,11 @@ public class ZombieMove : MonoBehaviour
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
         }
+        if (collision.gameObject.tag == "Lava")
+        {
+            Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
+            transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
+        }
     }
 
     IEnumerator collideFlash() 
