@@ -32,6 +32,7 @@ public class ZombieMove : MonoBehaviour
     public Rigidbody2D rb2D;
 
     public Animator anim;
+    private Boolean transformers = false;
 
     void Start()
     {
@@ -87,7 +88,7 @@ public class ZombieMove : MonoBehaviour
 
             if(hunt)
             {
-                anim.Play("Zombie_attack");
+                if(!transformers) anim.Play("Zombie_attack");
                 angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
                 speed = 7.0f * base_speed;
                 if(DistToPlayer < 1)
@@ -97,7 +98,7 @@ public class ZombieMove : MonoBehaviour
             }
             else
             {
-                anim.Play("Zombie_walk");
+                if(!transformers) anim.Play("Zombie_walk");
                 speed = base_speed;
                 if(framecount == 0) angle += (Math.Abs(angle)%11 - 5)*5;
             }
@@ -120,8 +121,13 @@ public class ZombieMove : MonoBehaviour
             //transform.rotation = Quaternion.Euler(0, 0, angle);
             if (dist1 > 2)
             {
+                if(!transformers) anim.Play("Civilian1_walk");
                 Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
                 transform.position = transform.position + hvMove * speed * Time.deltaTime;
+            }
+            else
+            {
+                if(!transformers) anim.Play("Civilian1_idle");
             }
 
             if(reinfect <= 10) StartCoroutine(sick());
@@ -153,7 +159,8 @@ public class ZombieMove : MonoBehaviour
         if (collision.gameObject.tag == "Vaccine") 
         {
             health--;
-            if(health <= 0)
+            StartCoroutine(collideFlash());
+            if(health <= 0 && zombiemode)
             {
                 zombiemode = false;
                 StartCoroutine(transformed());
@@ -161,7 +168,6 @@ public class ZombieMove : MonoBehaviour
                 speed = 2;
                 reinfect = 750;
             }
-            StartCoroutine(collideFlash());
             //Color32 c = spriteRenderer.material.color;
             //spriteRenderer.material.SetColor("_Color", Color.red);
             //spriteRenderer.material.color = c;
@@ -170,7 +176,8 @@ public class ZombieMove : MonoBehaviour
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
         {
             gameHandler.civilian_rescued();
-            Destroy(gameObject);
+            speed = 0;
+            StartCoroutine(cheering());
         }
         if (collision.gameObject.tag == "Player" && zombiemode)
         {
@@ -195,10 +202,18 @@ public class ZombieMove : MonoBehaviour
     
     IEnumerator transformed() 
     {
-        anim.enabled = true;
+        transformers = true;
         anim.Play("Zombie_rescued");
         yield return new WaitForSeconds(1f);
-        anim.enabled = false;      
+        transformers = false;   
+    }
+
+    IEnumerator cheering() 
+    {
+        transformers = true;
+        anim.Play("Civilian1_Cheer");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);   
     }
 
     IEnumerator sick() 
