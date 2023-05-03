@@ -117,7 +117,10 @@ public class GameHandler : MonoBehaviour {
             } 
             //collideFlash();
             if (playerHealth > StartPlayerHealth+20){
-                  playerHealth = StartPlayerHealth; 
+                  while(playerHealth > StartPlayerHealth+20){
+                        playerHealth -= 1;
+                  }
+                  // playerHealth = StartPlayerHealth; 
                   updateStatsDisplay();
             }
 
