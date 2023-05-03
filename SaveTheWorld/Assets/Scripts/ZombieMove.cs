@@ -181,7 +181,6 @@ public class ZombieMove : MonoBehaviour
 
     IEnumerator collideFlash() 
     {
-
         spriteRenderer.material.color =  Color.red;
         yield return new WaitForSeconds(0.1f);  
         spriteRenderer.material.color = Color.white;         

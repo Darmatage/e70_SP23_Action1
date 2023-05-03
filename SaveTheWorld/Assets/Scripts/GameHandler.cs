@@ -105,27 +105,36 @@ public class GameHandler : MonoBehaviour {
 */
 
       public void playerGetHit(int damage){
-           if (isDefending == false){
+            if (isDefending == false){
                   playerHealth -= damage; 
                   if (playerHealth >=0){ 
                         updateStatsDisplay(); 
                   } 
-                  if (damage > 0){ 
+                  if (damage > 0){
+                        player.GetComponent<PlayerMoveAround>().injured();
                         // player.GetComponent<PlayerHurt>().playerHit();       //play GetHit animation 
-                  } 
+                  }
             } 
-            
-           if (playerHealth > StartPlayerHealth+20){
+            //collideFlash();
+            if (playerHealth > StartPlayerHealth+20){
                   playerHealth = StartPlayerHealth; 
                   updateStatsDisplay();
             }
 
-           if (playerHealth <= 0){
+            if (playerHealth <= 0){
                   playerHealth = 0; 
                   updateStatsDisplay();
                   playerDies();
             }
-      } 
+      }
+/*
+      IEnumerator collideFlash() 
+      {
+            //SpriteRenderer sr = player.GetComponent<SpriteRenderer>(); 
+            player.GetComponent<PlayerMoveAround>().material.color =  Color.red;
+            yield return new WaitForSeconds(0.1f);  
+            player.GetComponent<SpriteRenderer>().material.color = Color.white;         
+      }*/
 
       public void playerGetAmmo(int rounds){
             // if (isDefending == false){

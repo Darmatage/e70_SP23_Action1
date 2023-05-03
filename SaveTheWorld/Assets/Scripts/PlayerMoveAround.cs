@@ -24,6 +24,7 @@ public class PlayerMoveAround : MonoBehaviour {
       public GameObject arm;
       private int reload;
       private bool FaceRight = false; //remember to turn this into faceleft
+      public SpriteRenderer spriteRenderer;
 
       void Start(){
            //anim = gameObject.GetComponentInChildren<Animator>();
@@ -109,5 +110,17 @@ public class PlayerMoveAround : MonoBehaviour {
                   arm.transform.localScale = theScale1;
             }
 
+      }
+
+      public void injured()
+      {
+            StartCoroutine(collideFlash());
+      }
+
+      IEnumerator collideFlash() 
+      {
+            spriteRenderer.material.color =  Color.red;
+            yield return new WaitForSeconds(0.1f);  
+            spriteRenderer.material.color = Color.white;         
       }
 }

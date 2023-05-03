@@ -188,6 +188,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   Bullet: {fileID: 2421530581578069442, guid: 6f2df26b0a4638043952eed47ca0ca91, type: 3}
   arm: {fileID: 0}
+  spriteRenderer: {fileID: 3844382490133311019}
 --- !u!114 &4753460891306935662
 MonoBehaviour:
   m_ObjectHideFlags: 0
