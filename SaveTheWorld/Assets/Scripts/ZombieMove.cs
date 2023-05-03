@@ -34,8 +34,18 @@ public class ZombieMove : MonoBehaviour
     public Animator anim;
     private Boolean transformers = false;
 
+    private String Civilian_walk;
+    private String Civilian_idle;
+    private String Civilian_cheer;
+
     void Start()
     {
+        Identity = UnityEngine.Random.Range(1, 5);
+        Civilian_walk = "Civilian1_walk";
+        Civilian_idle = "Civilian1_idle";
+        Civilian_cheer = "Civilian1_Cheer";
+
+
 		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
 		
         zombify();
@@ -121,13 +131,13 @@ public class ZombieMove : MonoBehaviour
             //transform.rotation = Quaternion.Euler(0, 0, angle);
             if (dist1 > 2)
             {
-                if(!transformers) anim.Play("Civilian1_walk");
+                if(!transformers) anim.Play(Civilian_walk);
                 Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
                 transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
             else
             {
-                if(!transformers) anim.Play("Civilian1_idle");
+                if(!transformers) anim.Play(Civilian_idle);
             }
 
             if(reinfect <= 10) StartCoroutine(sick());
@@ -211,7 +221,7 @@ public class ZombieMove : MonoBehaviour
     IEnumerator cheering() 
     {
         transformers = true;
-        anim.Play("Civilian1_Cheer");
+        anim.Play(Civilian_cheer);
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);   
     }
