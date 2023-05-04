@@ -129,6 +129,7 @@ public class ZombieMove : MonoBehaviour
 
         if(zombiemode)
         {
+            gameObject.layer = 6;
             anim.enabled = true;
             spriteRenderer.sprite = Zombie;
             framecount = (framecount+1)%25;
@@ -184,6 +185,7 @@ public class ZombieMove : MonoBehaviour
         }
         else
         {
+            gameObject.layer = 8;
             spriteRenderer.sprite = Human;
             angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
             //transform.rotation = Quaternion.Euler(0, 0, angle);
