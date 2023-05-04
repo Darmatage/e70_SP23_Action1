@@ -40,10 +40,35 @@ public class ZombieMove : MonoBehaviour
 
     void Start()
     {
-        Identity = UnityEngine.Random.Range(1, 5);
+        Identity = UnityEngine.Random.Range(1, 6);
         Civilian_walk = "Civilian1_walk";
         Civilian_idle = "Civilian1_idle";
         Civilian_cheer = "Civilian1_Cheer";
+
+        if(Identity == 2)
+        {
+            Civilian_walk = "Civilian2_walk";
+            Civilian_idle = "Civilian2_idle";
+            Civilian_cheer = "Civilian2_Cheer";
+        }
+        if(Identity == 3)
+        {
+            Civilian_walk = "Civilian3_walk";
+            Civilian_idle = "Civilian3_idle";
+            Civilian_cheer = "Civilian3_Cheer";
+        }
+        if(Identity == 4)
+        {
+            Civilian_walk = "Civilian4_walk";
+            Civilian_idle = "Civilian4_idle";
+            Civilian_cheer = "Civilian4_Cheer";
+        }
+        if(Identity == 5)
+        {
+            Civilian_walk = "Civilian5_walk";
+            Civilian_idle = "Civilian5_idle";
+            Civilian_cheer = "Civilian5_Cheer";
+        }
 
 
 		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
