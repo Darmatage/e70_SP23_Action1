@@ -14,6 +14,8 @@ public class PickUp : MonoBehaviour{
       public bool isAmmoPickUp = false;
       public int ammoBoost = 10;
 
+      public AudioSource SFX;
+
 
 
       void Start(){
@@ -25,29 +27,30 @@ public class PickUp : MonoBehaviour{
             if (other.gameObject.tag == "Player"){ 
 
                     // GetComponent<Collider2D>().enabled = false; 
-                    StartCoroutine(DestroyThis());
+                  StartCoroutine(DestroyThis());
 
-                //   GetComponent<AudioSource>().Play();
+                  //GetComponent<AudioSource>().Play();
 
                   if (isHealthPickUp == true) {
                     // This can be changed if needed.
-                    gameHandler.playerGetHit(healthBoost *-1);
+                        gameHandler.playerGetHit(healthBoost *-1);
 
                         //playerPowerupVFX.powerup();
                   }
 
-                if (isAmmoPickUp == true) {
+                  if (isAmmoPickUp == true) {
                     // This can be changed if needed.
-                    gameHandler.playerGetAmmo(ammoBoost);
+                        gameHandler.playerGetAmmo(ammoBoost);
 
-                    //playerPowerupVFX.powerup();
-                }
+                        //playerPowerupVFX.powerup();
+                  }
 
             }
             gameHandler.updatedisplay();
       } 
 
       IEnumerator DestroyThis(){
+            SFX.Play();
             yield return new WaitForSeconds(0.3f);
             Destroy(gameObject);
       }

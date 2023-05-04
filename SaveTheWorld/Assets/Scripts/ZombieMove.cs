@@ -38,6 +38,8 @@ public class ZombieMove : MonoBehaviour
     private String Civilian_idle;
     private String Civilian_cheer;
 
+    public AudioSource MedivacSFX;
+
     void Start()
     {
         Identity = UnityEngine.Random.Range(1, 11);
@@ -278,6 +280,7 @@ public class ZombieMove : MonoBehaviour
     {
         transformers = true;
         anim.Play(Civilian_cheer);
+        MedivacSFX.Play();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);   
     }
