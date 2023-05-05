@@ -232,8 +232,8 @@ public class ZombieMove : MonoBehaviour
             StartCoroutine(collideFlash());
             if(health <= 0 && zombiemode)
             {
-                zombiemode = false;
                 StartCoroutine(transformed());
+                zombiemode = false;
                 gameObject.tag = "Civilian";
                 speed = 2;
                 reinfect = 750;
@@ -273,9 +273,14 @@ public class ZombieMove : MonoBehaviour
     IEnumerator transformed() 
     {
         transformers = true;
+        float rescale = (float)(str_lvl-1)*0.5f + 1f;
+        if(zombiemode) transform.localScale = new Vector3(1f, 1f, 1f);
+        else transform.localScale = new Vector3(rescale, rescale, 1f);
+
         anim.Play("Zombie_rescued");
         yield return new WaitForSeconds(1f);
-        transformers = false;   
+        transformers = false; 
+
     }
 
     IEnumerator cheering() 
