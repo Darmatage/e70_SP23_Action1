@@ -7,7 +7,7 @@ public class ZombieMove : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool hunt;
-    private bool zombiemode = true;
+    public bool zombiemode = true;
     public int str_lvl;
 
     private float speed;
@@ -110,6 +110,7 @@ public class ZombieMove : MonoBehaviour
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
         attack_location = transform.position;
         angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+        if(!zombiemode) vaxed();
     }
 
     void zombify()
@@ -138,7 +139,7 @@ public class ZombieMove : MonoBehaviour
             
             //if(dist1 > 15) attack_location = seek_victim();
 
-            if(dist1 < 2)
+            if(dist1 < 2.5f)
             {
                 attack_location = target.position;
                 hunt = true;
@@ -159,7 +160,7 @@ public class ZombieMove : MonoBehaviour
             {
                 if(!transformers) anim.Play("Zombie_attack");
                 angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
-                speed = 7.0f * base_speed;
+                speed = 8.0f * base_speed;
                 if(DistToPlayer < 1)
                 {
                     hunt = false;
@@ -189,7 +190,7 @@ public class ZombieMove : MonoBehaviour
             spriteRenderer.sprite = Human;
             angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
             //transform.rotation = Quaternion.Euler(0, 0, angle);
-            if (dist1 > 2)
+            if (dist1 > 1.5f)
             {
                 if(!transformers) anim.Play(Civilian_walk);
                 Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
@@ -235,7 +236,7 @@ public class ZombieMove : MonoBehaviour
                 StartCoroutine(transformed());
                 zombiemode = false;
                 gameObject.tag = "Civilian";
-                speed = 2;
+                speed = 3;
                 reinfect = 750;
             }
             //Color32 c = spriteRenderer.material.color;
@@ -263,6 +264,24 @@ public class ZombieMove : MonoBehaviour
         }
     }
 
+    public void vaxed()
+    {
+        StartCoroutine(transformed());
+        zombiemode = false;
+        gameObject.tag = "Civilian";
+        speed = 3;
+        reinfect = 0;
+    }
+
+    public void killed()
+    {
+        StartCoroutine(transformed());
+        zombiemode = true;
+        gameObject.tag = "Zombie";
+        zombify();
+        reinfect = 0;
+    }
+
     IEnumerator collideFlash() 
     {
         spriteRenderer.material.color =  Color.red;
@@ -278,7 +297,7 @@ public class ZombieMove : MonoBehaviour
         else transform.localScale = new Vector3(rescale, rescale, 1f);
 
         anim.Play("Zombie_rescued");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         transformers = false; 
 
     }
