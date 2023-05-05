@@ -7,6 +7,7 @@ public class TriggerHander : MonoBehaviour
     public GameObject[] Set_active;
     public GameObject[] Destroy_object;
     public GameObject[] zombify;
+    public GameObject[] evolve;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,10 @@ public class TriggerHander : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(waittime());
+        if (collision.gameObject.tag == "Player")
+        {
+            StartCoroutine(waittime());
+        }
     }
 
     IEnumerator waittime()
@@ -31,6 +35,13 @@ public class TriggerHander : MonoBehaviour
         {
             civilian.GetComponent<ZombieMove>().killed();
         }
+        if(evolve.Length != 0)
+        {
+            evolve[1].transform.position = evolve[0].transform.position;
+            evolve[0].SetActive(false);
+            evolve[1].SetActive(true);
+        }
+
         yield return new WaitForSeconds(0.5f); 
         foreach(GameObject Todestroy in Destroy_object)
         {

@@ -40,6 +40,10 @@ public class ZombieMove : MonoBehaviour
 
     public AudioSource MedivacSFX;
 
+    private GameObject[] checkpoints;
+    private Boolean foundsafety = false;
+    private Boolean beingsaved = false;
+
     void Start()
     {
         Identity = UnityEngine.Random.Range(1, 11);
@@ -105,6 +109,7 @@ public class ZombieMove : MonoBehaviour
 
 
 		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+        checkpoints = GameObject.FindGameObjectsWithTag("CheckPoint");
 		
         zombify();
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
@@ -188,17 +193,21 @@ public class ZombieMove : MonoBehaviour
         {
             gameObject.layer = 8;
             spriteRenderer.sprite = Human;
+            runtosafety();
             angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
             //transform.rotation = Quaternion.Euler(0, 0, angle);
+            if(!foundsafety)
+            {
             if (dist1 > 1.5f)
-            {
-                if(!transformers) anim.Play(Civilian_walk);
-                Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-                transform.position = transform.position + hvMove * speed * Time.deltaTime;
-            }
-            else
-            {
-                if(!transformers) anim.Play(Civilian_idle);
+                {
+                    if(!transformers) anim.Play(Civilian_walk);
+                    Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                    transform.position = transform.position + hvMove * speed * Time.deltaTime;
+                }
+                else
+                {
+                    if(!transformers) anim.Play(Civilian_idle);
+                }
             }
 
             if(reinfect <= 10) StartCoroutine(sick());
@@ -207,6 +216,23 @@ public class ZombieMove : MonoBehaviour
         //if(hunt) targeting();
         //tracking();
         
+    }
+
+    void runtosafety()
+    {
+        foreach(GameObject safety in checkpoints)
+        {
+            double DistToSafety = Vector3.Distance(transform.position, safety.transform.position);
+            if(DistToSafety < 3f)
+            {
+                foundsafety = true;
+                if(!transformers) anim.Play(Civilian_walk);
+                angle = Mathf.Atan2((transform.position.y - safety.transform.position.y) *-1, (transform.position.x - safety.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+                Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                transform.position = transform.position + hvMove * speed * Time.deltaTime;
+            }
+            if(DistToSafety < 0.75f) StartCoroutine(cheering());
+        }
     }
     
     void OnTriggerEnter2D(Collider2D collision)
@@ -222,6 +248,7 @@ public class ZombieMove : MonoBehaviour
         if (collision.gameObject.tag == "Zombie" && !zombiemode && reinfect < 10) 
         {
             StartCoroutine(transformed());
+            foundsafety = false;
             zombiemode = true;
             gameObject.tag = "Zombie";
             zombify();
@@ -246,8 +273,7 @@ public class ZombieMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
         {
-            gameHandler.civilian_rescued();
-            speed = 0;
+            speed = 1f;
             StartCoroutine(cheering());
         }
         if (collision.gameObject.tag == "Player" && zombiemode)
@@ -268,6 +294,7 @@ public class ZombieMove : MonoBehaviour
     {
         StartCoroutine(transformed());
         zombiemode = false;
+        //gameHandler.civilian_rescued();
         gameObject.tag = "Civilian";
         speed = 3;
         reinfect = 0;
@@ -276,6 +303,7 @@ public class ZombieMove : MonoBehaviour
     public void killed()
     {
         StartCoroutine(transformed());
+        foundsafety = false;
         zombiemode = true;
         gameObject.tag = "Zombie";
         zombify();
@@ -308,6 +336,8 @@ public class ZombieMove : MonoBehaviour
         anim.Play(Civilian_cheer);
         MedivacSFX.Play();
         yield return new WaitForSeconds(1f);
+        if(!beingsaved) gameHandler.civilian_rescued();
+        beingsaved = true;
         Destroy(gameObject);   
     }
 

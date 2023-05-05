@@ -26,7 +26,8 @@ public class GameHandler : MonoBehaviour {
       public GameObject ammoText;
       public GameObject ObjectiveTextpause;
 
-      public static float rescued = 0.0f; // Leo added this
+      public static int rescued = 0; // Leo added this
+      public static float rescuedt = 0.0f; // Leo added this
       public int ammo = 10; // Leo added this
       public int StartPlayerAmmo = 10;
 
@@ -204,7 +205,8 @@ public class GameHandler : MonoBehaviour {
 
       public void civilian_rescued() // changes the civilian rescue count
       {
-            rescued+=0.5f;
+            //rescuedt +=0.25f;
+            rescued++;
             updateStatsDisplay();
       }
 

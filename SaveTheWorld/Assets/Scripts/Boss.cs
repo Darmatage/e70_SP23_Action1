@@ -72,7 +72,7 @@ public class Boss : MonoBehaviour
             if(framecount > seek_and_cough && framecount <= cough_max)
             {
                 spriteRenderer.sprite = boss_attack;
-                if(framecount%11 == 0)
+                if(framecount%13 == 0)
                 {
                     GameObject clone = Instantiate(virus) as GameObject;
                     Vector3 front = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
