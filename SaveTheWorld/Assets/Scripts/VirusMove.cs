@@ -35,7 +35,7 @@ public class VirusMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "CheckPoint" && collision.gameObject.tag != "Pickup" && collision.gameObject.tag != "Water" && collision.gameObject.tag != "Zombie") 
+        if (collision.gameObject.tag != "CheckPoint" && collision.gameObject.tag != "Pickup" && collision.gameObject.tag != "Water" && collision.gameObject.tag != "Lava" && collision.gameObject.tag != "Zombie") 
         {
             if(collision.gameObject.tag == "Player")
             {
