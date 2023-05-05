@@ -6,6 +6,7 @@ public class TheMaster : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public GameObject[] children;
+    public GameObject[] Destroy_object;
     public int health = 10;
     public GameObject virus;
     private int counter = 0;
@@ -61,6 +62,10 @@ public class TheMaster : MonoBehaviour
     IEnumerator destruct()
     {
         yield return new WaitForSeconds(0.1f);
+        foreach(GameObject Todestroy in Destroy_object)
+        {
+            Destroy(Todestroy);
+        }
         Destroy(gameObject);
     }
 }
