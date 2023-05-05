@@ -3759,11 +3759,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6261013920490470083, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.78
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6261013920490470083, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865220, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_Name
@@ -3775,11 +3775,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865221, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.12
+      value: -39.91
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865221, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.7
+      value: -20.46
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865221, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8066,11 +8066,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6261013920490470083, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.08
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6261013920490470083, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.74
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865220, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_Name
@@ -8082,7 +8082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865221, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.12
+      value: -30.32
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865221, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31684,11 +31684,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6261013920490470083, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6261013920490470083, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865220, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_Name
@@ -31700,11 +31700,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865221, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.12
+      value: -37.08
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865221, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.7
+      value: -20.46
       objectReference: {fileID: 0}
     - target: {fileID: 6261013922166865221, guid: ef998871c60f0834486341fd34695f2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -46118,7 +46118,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: narrations.Array.data[6]
-      value: Get to the Chopper (austrian accent)
+      value: Destroy the white boxes, some doors are automatic and you need to stand
+        in front of it
       objectReference: {fileID: 0}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: nextlocation.Array.data[0]
