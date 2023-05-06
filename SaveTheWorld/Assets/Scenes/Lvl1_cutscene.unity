@@ -354,8 +354,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You were overwhelmed by the task in front of you. As a result of your poor
-    choices, the infected on the mountain will go uncured.
+  m_Text: Stuff happens here
 --- !u!222 &696939172
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -435,7 +434,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Lose!
+  m_Text: First Camp
 --- !u!222 &772564523
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -741,11 +740,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1521792679732529064, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
       propertyPath: m_Name
-      value: Button_Quit
+      value: Button_Next
       objectReference: {fileID: 0}
     - target: {fileID: 2061667476110878438, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
       propertyPath: m_Text
-      value: QUIT
+      value: Play Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305463413129115980, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4305463413129115980, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -753,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 5645287041282173033}
     - target: {fileID: 4305463413129115980, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: loadNext
       objectReference: {fileID: 0}
     - target: {fileID: 4305463413129115980, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

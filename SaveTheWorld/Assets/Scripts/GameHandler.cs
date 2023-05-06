@@ -177,7 +177,7 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void StartGame() {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Lvl1_cutscene");
             updateStatsDisplay();
       }
 
@@ -189,6 +189,11 @@ public class GameHandler : MonoBehaviour {
                 // Please also reset all static variables here, for new games!
             playerHealth = StartPlayerHealth;
             ammo = StartPlayerAmmo;
+      }
+
+      public void loadNext(string scene) {
+            if(sceneName == "Lvl1_cutscene") SceneManager.LoadScene("Level1");
+            updateStatsDisplay();
       }
 
       public void QuitGame() {
