@@ -278,7 +278,7 @@ public class ZombieMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" && zombiemode)
         {
-            gameHandler.playerGetHit(str_lvl*5);
+            gameHandler.playerGetHit(str_lvl*10);
             daze = 100;
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
