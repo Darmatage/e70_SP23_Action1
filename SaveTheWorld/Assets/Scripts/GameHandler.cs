@@ -192,7 +192,8 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void loadNext(string scene) {
-            if(sceneName == "Lvl1_cutscene") SceneManager.LoadScene("Level1");
+            if(sceneName == "Lvl1_cutscene") SceneManager.LoadScene("Lvl1_Objectives");
+            if(sceneName == "Lvl1_Objectives") SceneManager.LoadScene("Level1");
             updateStatsDisplay();
       }
 
