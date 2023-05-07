@@ -46,7 +46,7 @@ public class ZombieMove : MonoBehaviour
 
     void Start()
     {
-        Identity = UnityEngine.Random.Range(1, 11);
+        Identity = UnityEngine.Random.Range(1, 16);
         Civilian_walk = "Civilian1_walk";
         Civilian_idle = "Civilian1_idle";
         Civilian_cheer = "Civilian1_Cheer";
@@ -104,6 +104,36 @@ public class ZombieMove : MonoBehaviour
             Civilian_walk = "Civilian10_walk";
             Civilian_idle = "Civilian10_idle";
             Civilian_cheer = "Civilian10_Cheer";
+        }
+        if(Identity == 11)
+        {
+            Civilian_walk = "Civilian11_walk";
+            Civilian_idle = "Civilian11_idle";
+            Civilian_cheer = "Civilian11_Cheer";
+        }
+        if(Identity == 12)
+        {
+            Civilian_walk = "Civilian12_walk";
+            Civilian_idle = "Civilian12_idle";
+            Civilian_cheer = "Civilian12_Cheer";
+        }
+        if(Identity == 13)
+        {
+            Civilian_walk = "Civilian13_walk";
+            Civilian_idle = "Civilian13_idle";
+            Civilian_cheer = "Civilian13_Cheer";
+        }
+        if(Identity == 14)
+        {
+            Civilian_walk = "Civilian14_walk";
+            Civilian_idle = "Civilian14_idle";
+            Civilian_cheer = "Civilian14_Cheer";
+        }
+        if(Identity == 15)
+        {
+            Civilian_walk = "Civilian15_walk";
+            Civilian_idle = "Civilian15_idle";
+            Civilian_cheer = "Civilian15_Cheer";
         }
 
 
