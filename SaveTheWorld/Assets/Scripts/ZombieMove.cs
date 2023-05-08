@@ -47,6 +47,7 @@ public class ZombieMove : MonoBehaviour
     private Boolean foundpath = false;
 
     public bool isLevel4 = false;
+    public bool startascivilian = false;
 
     void Start()
     {
@@ -153,6 +154,7 @@ public class ZombieMove : MonoBehaviour
         attack_location = transform.position;
         angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
         if(!zombiemode) vaxed();
+        if(startascivilian) speed = 0.01f;
     }
 
     void zombify()
@@ -359,7 +361,13 @@ public class ZombieMove : MonoBehaviour
             daze = 100;
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
-        }
+        }/*
+        if (collision.gameObject.tag == "Civilian" && !zombiemode)
+        {
+            angle++;
+            Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
+            transform.position = transform.position + hvMove * 1.0f * Time.deltaTime;
+        }*/
     }
 
     public void vaxed()
