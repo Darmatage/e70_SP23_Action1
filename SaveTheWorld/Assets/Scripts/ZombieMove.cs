@@ -292,22 +292,13 @@ public class ZombieMove : MonoBehaviour
                     foundsafety = true;
                     foundpath = true;
                     attack_location = pnode.transform.position;
-                    /*
-                    if(!transformers) anim.Play(Civilian_walk);
-                    angle = Mathf.Atan2((transform.position.y - pnode.transform.position.y) *-1, (transform.position.x - pnode.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
-                    Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-                    transform.position = transform.position + hvMove * speed * Time.deltaTime;*/
-                }
+                 }
                 if(DistToSafety < 0.75f) 
                 {
                     //foundpath = true;
                     foundsafety = true;
                     GameObject nnode = pnode.GetComponent<PathNode>().nextnode;
-                    attack_location = nnode.transform.position; /*
-                    if(!transformers) anim.Play(Civilian_walk);
-                    angle = Mathf.Atan2((transform.position.y - nnode.transform.position.y) *-1, (transform.position.x - nnode.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
-                    Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-                    transform.position = transform.position + hvMove * speed * Time.deltaTime;*/
+                    attack_location = nnode.transform.position;
                 }
             }
         }
@@ -403,7 +394,6 @@ public class ZombieMove : MonoBehaviour
         float rescale = (float)(str_lvl-1)*0.5f + 1f;
         if(zombiemode) transform.localScale = new Vector3(1f, 1f, 1f);
         else transform.localScale = new Vector3(rescale, rescale, 1f);
-
         anim.Play("Zombie_rescued");
         yield return new WaitForSeconds(1.5f);
         transformers = false; 

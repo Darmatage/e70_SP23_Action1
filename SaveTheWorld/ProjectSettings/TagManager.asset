@@ -18,6 +18,7 @@ TagManager:
   - ZombieBoss
   - Lava
   - ShakerCam
+  - Node
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - PlayerLayer
   - CivilianLayer
   - LavaStopCollider
-  - 
+  - BlockPlayer
   - 
   - 
   - 
