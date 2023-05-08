@@ -11,21 +11,24 @@ public class TheMaster : MonoBehaviour
     public GameObject virus;
     private int counter = 0;
     private float angle = 0.0f;
+    private Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(child_count() == 0) StartCoroutine(destruct());
         //counter++;
-        //if(counter == 5)
-        //{
-            angle++;
+        if(Vector3.Distance(transform.position, target.transform.position) <= 15)
+        {
+            angle+=0.1f;
             float child_angle = 0.0f;
+            float angle_change = 360f / (float)child_count();
             foreach(GameObject child in children)
             {
                 if(child != null)
@@ -34,22 +37,37 @@ public class TheMaster : MonoBehaviour
                     clone.transform.position = transform.position;
                     clone.transform.rotation = Quaternion.Euler(0, 0, angle + child_angle);
                     clone.SetActive(true);
-                    child_angle += 90;
+                    child_angle += angle_change;
                 }
             }
             //counter = 0;
-        //}
+        }
     }
 
+    int child_count()
+    {
+        int count = 0;
+        foreach(GameObject child in children)
+        {
+            if(child != null) count ++;
+        }
+        return count;
+
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Vaccine") 
+        if (collision.gameObject.tag == "Vaccine" && child_count() == 0) 
         {
             health--;
-            StartCoroutine(collideFlash());
+            is_hit();
             if(health <= 0) StartCoroutine(destruct());
         }
+    }
+
+    public void is_hit()
+    {
+        StartCoroutine(collideFlash());
     }
 
     IEnumerator collideFlash() 

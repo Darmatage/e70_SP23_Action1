@@ -6,6 +6,7 @@ public class TestTank : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public GameObject[] Destroy_object;
+    public GameObject TheMaster;
     public int health = 5;
 
     // Start is called before the first frame update
@@ -17,7 +18,7 @@ public class TestTank : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TheMaster = GameObject.Find("TheMaster");
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +27,7 @@ public class TestTank : MonoBehaviour
         {
             health--;
             StartCoroutine(collideFlash());
+            TheMaster.GetComponent<TheMaster>().is_hit();
             if(health <= 0) StartCoroutine(destruct());
         }
     }

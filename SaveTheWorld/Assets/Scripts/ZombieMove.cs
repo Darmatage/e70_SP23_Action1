@@ -46,7 +46,7 @@ public class ZombieMove : MonoBehaviour
 
     void Start()
     {
-        Identity = UnityEngine.Random.Range(1, 16);
+        Identity = UnityEngine.Random.Range(1, 11);
         Civilian_walk = "Civilian1_walk";
         Civilian_idle = "Civilian1_idle";
         Civilian_cheer = "Civilian1_Cheer";
@@ -300,12 +300,12 @@ public class ZombieMove : MonoBehaviour
             //spriteRenderer.material.SetColor("_Color", Color.red);
             //spriteRenderer.material.color = c;
             //collideFlash();
-        }
+        }/*
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
         {
-            speed = 1f;
+            speed = 0.1f;
             StartCoroutine(cheering());
-        }
+        }*/
         if (collision.gameObject.tag == "Player" && zombiemode)
         {
             gameHandler.playerGetHit(str_lvl*10);
@@ -358,8 +358,11 @@ public class ZombieMove : MonoBehaviour
     IEnumerator cheering() 
     {
         transformers = true;
+        zombiemode = false;
+        gameObject.tag = "Civilian";
         anim.Play(Civilian_cheer);
         MedivacSFX.Play();
+        speed = 0;
         yield return new WaitForSeconds(1f);
         if(!beingsaved) gameHandler.civilian_rescued();
         beingsaved = true;
