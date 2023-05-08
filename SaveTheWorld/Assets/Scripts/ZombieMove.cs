@@ -41,8 +41,12 @@ public class ZombieMove : MonoBehaviour
     public AudioSource MedivacSFX;
 
     private GameObject[] checkpoints;
+    private GameObject[] pathnodes;
     private Boolean foundsafety = false;
     private Boolean beingsaved = false;
+    private Boolean foundpath = false;
+
+    public bool isLevel4 = false;
 
     void Start()
     {
@@ -140,6 +144,9 @@ public class ZombieMove : MonoBehaviour
 
 		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         checkpoints = GameObject.FindGameObjectsWithTag("CheckPoint");
+        if (isLevel4 == true){
+            pathnodes = GameObject.FindGameObjectsWithTag("Node");
+        }
 		
         zombify();
         target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
@@ -223,12 +230,14 @@ public class ZombieMove : MonoBehaviour
         {
             gameObject.layer = 8;
             spriteRenderer.sprite = Human;
+
             runtosafety();
-            angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
             //transform.rotation = Quaternion.Euler(0, 0, angle);
             if(!foundsafety)
             {
-            if (dist1 > 1.5f)
+                attack_location = target.position;
+                angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+                if (dist1 > 1.5f)
                 {
                     if(!transformers) anim.Play(Civilian_walk);
                     Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
@@ -238,6 +247,13 @@ public class ZombieMove : MonoBehaviour
                 {
                     if(!transformers) anim.Play(Civilian_idle);
                 }
+            }
+            else
+            {
+                if(!transformers) anim.Play(Civilian_walk);
+                angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
+                Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
 
             if(reinfect <= 10) StartCoroutine(sick());
@@ -261,7 +277,37 @@ public class ZombieMove : MonoBehaviour
                 Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
                 transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
-            if(DistToSafety < 0.75f) StartCoroutine(cheering());
+            if(DistToSafety < 1f) StartCoroutine(cheering());
+        }
+
+        //In the level 4 lab, cured civilians run for the exit at the start of the lab
+        if (isLevel4 == true){
+            foreach(GameObject pnode in pathnodes)
+            {
+                double DistToSafety = Vector3.Distance(transform.position, pnode.transform.position);
+                if(DistToSafety < 6f && !foundsafety)
+                {
+                    foundsafety = true;
+                    foundpath = true;
+                    attack_location = pnode.transform.position;
+                    /*
+                    if(!transformers) anim.Play(Civilian_walk);
+                    angle = Mathf.Atan2((transform.position.y - pnode.transform.position.y) *-1, (transform.position.x - pnode.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+                    Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                    transform.position = transform.position + hvMove * speed * Time.deltaTime;*/
+                }
+                if(DistToSafety < 0.75f) 
+                {
+                    //foundpath = true;
+                    foundsafety = true;
+                    GameObject nnode = pnode.GetComponent<PathNode>().nextnode;
+                    attack_location = nnode.transform.position; /*
+                    if(!transformers) anim.Play(Civilian_walk);
+                    angle = Mathf.Atan2((transform.position.y - nnode.transform.position.y) *-1, (transform.position.x - nnode.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+                    Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                    transform.position = transform.position + hvMove * speed * Time.deltaTime;*/
+                }
+            }
         }
     }
     
@@ -279,6 +325,7 @@ public class ZombieMove : MonoBehaviour
         {
             StartCoroutine(transformed());
             foundsafety = false;
+            foundpath = false;
             zombiemode = true;
             gameObject.tag = "Zombie";
             zombify();
@@ -300,12 +347,12 @@ public class ZombieMove : MonoBehaviour
             //spriteRenderer.material.SetColor("_Color", Color.red);
             //spriteRenderer.material.color = c;
             //collideFlash();
-        }/*
+        }
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
         {
             speed = 0.1f;
             StartCoroutine(cheering());
-        }*/
+        }
         if (collision.gameObject.tag == "Player" && zombiemode)
         {
             gameHandler.playerGetHit(str_lvl*10);
@@ -362,7 +409,7 @@ public class ZombieMove : MonoBehaviour
         gameObject.tag = "Civilian";
         anim.Play(Civilian_cheer);
         MedivacSFX.Play();
-        speed = 0;
+        //speed = 0;
         yield return new WaitForSeconds(1f);
         if(!beingsaved) gameHandler.civilian_rescued();
         beingsaved = true;
