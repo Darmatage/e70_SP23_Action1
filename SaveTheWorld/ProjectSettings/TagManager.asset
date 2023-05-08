@@ -17,6 +17,7 @@ TagManager:
   - EndCopter
   - ZombieBoss
   - Lava
+  - ShakerCam
   layers:
   - Default
   - TransparentFX

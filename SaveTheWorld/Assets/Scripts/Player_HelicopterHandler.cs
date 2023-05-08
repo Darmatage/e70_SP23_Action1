@@ -30,6 +30,8 @@ public class Player_HelicopterHandler : MonoBehaviour{
 	public bool startCopterDown = false;
 	public bool startCopterUp = false;
 	public bool endCopterUp = false;
+
+	public CameraShake cameraShake; 
 	
 	//public AudioSource copterSoundFast;
 	//public AudioSource copterSoundSlow;
@@ -39,11 +41,16 @@ public class Player_HelicopterHandler : MonoBehaviour{
 	}
 	
     void Start(){
+
+		cameraShake = GameObject.FindWithTag("ShakerCam").GetComponent<CameraShake>(); 
+
         //turn off the player (but keep it there for camera location 
 		playerMoveScript.enabled = false;
 		playerArt.SetActive(false);
 		playerGunArt.SetActive(false);
 		animEndCoptor.SetBool("slow", true);
+		// Needed for Camera Shake
+
 		StartCoroutine(StartCopter());
 		
     }
@@ -71,9 +78,13 @@ public class Player_HelicopterHandler : MonoBehaviour{
 	}
 	
 	IEnumerator StartCopter(){
+
 		startCopterDown = true;
+		// Screen Shake While Flying
 		//copterSoundFast.Play();
 		yield return new WaitForSeconds(moveSpeed *2f);
+
+		cameraShake.ShakeCamera(2.0f, 0.03f); 
 		startCopterDown = false;
 		//copterSoundFast.Stop();
 		
@@ -100,12 +111,15 @@ public class Player_HelicopterHandler : MonoBehaviour{
 		//endCopter.GetComponent<AudioSource>().Stop();
 		//copterSoundFast.Play();
 		//playerMoveScript.enabled = false;
+		// cameraShake.ShakeCamera(2.0f, 0.03f); 
 		transform.position = endCopterSeat.transform.position;
 		transform.parent = endCopterSeat.transform;
 		gameObject.GetComponent<Collider2D>().enabled = false;
 		animEndCoptor.SetBool("slow", false);
 		endCopterUp = true;
-		yield return new WaitForSeconds(moveSpeed *2f);
+		cameraShake.ShakeCamera(0.25f, 0.05f); 
+
+		yield return new WaitForSeconds(moveSpeed *1f);
 		SceneManager.LoadScene(NextLevel);
 	}
 	
