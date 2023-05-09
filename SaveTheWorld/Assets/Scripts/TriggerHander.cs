@@ -30,11 +30,6 @@ public class TriggerHander : MonoBehaviour
 
     IEnumerator waittime()
     {
-        yield return new WaitForSeconds(0.5f); 
-        foreach(GameObject civilian in zombify)
-        {
-            civilian.GetComponent<ZombieMove>().killed();
-        }
         if(evolve.Length != 0)
         {
             evolve[1].transform.position = evolve[0].transform.position;
@@ -50,6 +45,12 @@ public class TriggerHander : MonoBehaviour
         foreach(GameObject Toactivate in Set_active)
         {
             Toactivate.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(1.5f); 
+        foreach(GameObject civilian in zombify)
+        {
+            civilian.GetComponent<ZombieMove>().killed();
         }
         Destroy(gameObject);
     }
