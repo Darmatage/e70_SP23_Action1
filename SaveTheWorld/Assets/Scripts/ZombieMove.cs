@@ -287,7 +287,7 @@ public class ZombieMove : MonoBehaviour
             foreach(GameObject pnode in pathnodes)
             {
                 double DistToSafety = Vector3.Distance(transform.position, pnode.transform.position);
-                if(DistToSafety < 6f && !foundsafety)
+                if(DistToSafety < 10f && !foundsafety)
                 {
                     foundsafety = true;
                     foundpath = true;
@@ -352,13 +352,13 @@ public class ZombieMove : MonoBehaviour
             daze = 100;
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
-        }/*
+        }
         if (collision.gameObject.tag == "Civilian" && !zombiemode)
         {
-            angle++;
-            Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
+            angle +=30;
+            Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 1.0f * Time.deltaTime;
-        }*/
+        }
     }
 
     public void vaxed()
