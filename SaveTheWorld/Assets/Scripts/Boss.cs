@@ -92,6 +92,7 @@ public class Boss : MonoBehaviour
         if (collision.gameObject.tag == "Vaccine")
         {
             health --;
+            StartCoroutine(collideFlash());
             if(health <= 0)
             {
                 //GameObject clone = Instantiate(zombie) as GameObject;
@@ -108,5 +109,12 @@ public class Boss : MonoBehaviour
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
         }
+    }
+
+    IEnumerator collideFlash() 
+    {
+        spriteRenderer.material.color =  Color.red;
+        yield return new WaitForSeconds(0.1f);  
+        spriteRenderer.material.color = Color.white;         
     }
 }

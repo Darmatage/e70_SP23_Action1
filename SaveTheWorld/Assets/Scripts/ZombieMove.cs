@@ -293,7 +293,7 @@ public class ZombieMove : MonoBehaviour
                     foundpath = true;
                     attack_location = pnode.transform.position;
                  }
-                if(DistToSafety < 0.75f) 
+                if(DistToSafety < 0.50f) 
                 {
                     //foundpath = true;
                     foundsafety = true;
@@ -352,13 +352,13 @@ public class ZombieMove : MonoBehaviour
             daze = 100;
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 270) / Mathf.Rad2Deg), (float)Math.Sin((angle + 270)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 5.0f * Time.deltaTime;
-        }
+        }/*
         if (collision.gameObject.tag == "Civilian" && !zombiemode)
         {
             angle +=30;
             Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
             transform.position = transform.position + hvMove * 1.0f * Time.deltaTime;
-        }
+        }*/
     }
 
     public void vaxed()
