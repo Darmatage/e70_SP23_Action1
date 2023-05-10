@@ -275,31 +275,48 @@ public class ZombieMove : MonoBehaviour
             {
                 foundsafety = true;
                 if(!transformers) anim.Play(Civilian_walk);
-                angle = Mathf.Atan2((transform.position.y - safety.transform.position.y) *-1, (transform.position.x - safety.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
-                Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
-                transform.position = transform.position + hvMove * speed * Time.deltaTime;
+                attack_location = safety.transform.position;
+                //angle = Mathf.Atan2((transform.position.y - safety.transform.position.y) *-1, (transform.position.x - safety.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
+                //Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
+                //transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
             if(DistToSafety < 1f) StartCoroutine(cheering());
         }
 
         //In the level 4 lab, cured civilians run for the exit at the start of the lab
         if (isLevel4 == true){
+            GameObject tnode = null;
+            double tdistance = 0;
             foreach(GameObject pnode in pathnodes)
             {
                 double DistToSafety = Vector3.Distance(transform.position, pnode.transform.position);
-                if(DistToSafety < 10f && !foundsafety)
+                if(DistToSafety < 6f && !foundsafety)
                 {
-                    foundsafety = true;
-                    foundpath = true;
-                    attack_location = pnode.transform.position;
-                 }
+                    if(tnode == null)
+                    {
+                        tnode = pnode;
+                        tdistance = DistToSafety;
+                    }
+                    if(DistToSafety < tdistance)
+                    {
+                        tnode = pnode;
+                        tdistance = DistToSafety;
+                    }
+                }
                 if(DistToSafety < 0.50f) 
                 {
                     //foundpath = true;
                     foundsafety = true;
                     GameObject nnode = pnode.GetComponent<PathNode>().nextnode;
                     attack_location = nnode.transform.position;
+                    return;
                 }
+            }
+            if(tnode != null)
+            {
+                foundsafety = true;
+                foundpath = true;
+                attack_location = tnode.transform.position;
             }
         }
     }

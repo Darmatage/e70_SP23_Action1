@@ -23,9 +23,10 @@ public class TheMaster : MonoBehaviour
     void Update()
     {
         if(child_count() == 0) StartCoroutine(destruct());
-        //counter++;
+        counter++;
         if(Vector3.Distance(transform.position, target.transform.position) <= 15)
         {
+            /*
             angle+=0.1f;
             float child_angle = 0.0f;
             float angle_change = 360f / (float)child_count();
@@ -39,8 +40,15 @@ public class TheMaster : MonoBehaviour
                     clone.SetActive(true);
                     child_angle += angle_change;
                 }
+            }*/
+            if(counter == 150) 
+            {
+                counter = 0;
+                GameObject clone = Instantiate(virus) as GameObject;
+                clone.transform.position = transform.position;
+                clone.SetActive(true);
             }
-            //counter = 0;
+
         }
     }
 
