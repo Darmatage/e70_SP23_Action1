@@ -21415,7 +21415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7521938654124533893, guid: b2b7fa0a13aa94f9ea6fc6233f0e6f3a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521938654341253748, guid: b2b7fa0a13aa94f9ea6fc6233f0e6f3a, type: 3}
       propertyPath: NextLevel
@@ -103902,6 +103902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelicopterStart
       objectReference: {fileID: 0}
+    - target: {fileID: 928821874383381586, guid: 601c69897e564f24ca0a077b6720073a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 928821874383381587, guid: 601c69897e564f24ca0a077b6720073a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -106065,7 +106069,7 @@ PrefabInstance:
       objectReference: {fileID: 1589384239}
     - target: {fileID: 4753460891306935662, guid: f457676ed24117d4786f58e3022253ce, type: 3}
       propertyPath: NextLevel
-      value: Level2
+      value: End_Win
       objectReference: {fileID: 0}
     - target: {fileID: 4753460891306935662, guid: f457676ed24117d4786f58e3022253ce, type: 3}
       propertyPath: endCopter
