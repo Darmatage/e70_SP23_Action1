@@ -135723,7 +135723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: narrations.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: nextlocation.Array.size
@@ -135755,6 +135755,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: narrations.Array.data[6]
+      value: Investigate the next medivac
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: narrations.Array.data[7]
       value: Get to the Chopper (austrian accent)
       objectReference: {fileID: 0}
     - target: {fileID: 9159338668516843232, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}

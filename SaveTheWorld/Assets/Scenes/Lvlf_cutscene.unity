@@ -1328,6 +1328,10 @@ PrefabInstance:
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 1408948370}
+    - target: {fileID: 8698287884585313204, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
+      propertyPath: ObjectiveTextpause
+      value: 
+      objectReference: {fileID: 1217924170}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52ff5d69083804fa5a2644f47cad969e, type: 3}
 --- !u!114 &5645287041282173033 stripped
