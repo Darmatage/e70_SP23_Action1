@@ -51,7 +51,9 @@ public class ZombieMove : MonoBehaviour
 
     void Start()
     {
+        rb2D.mass = (float)UnityEngine.Random.Range(1, 11) / 10.0f;
         Identity = UnityEngine.Random.Range(1, 11);
+
         Civilian_walk = "Civilian1_walk";
         Civilian_idle = "Civilian1_idle";
         Civilian_cheer = "Civilian1_Cheer";

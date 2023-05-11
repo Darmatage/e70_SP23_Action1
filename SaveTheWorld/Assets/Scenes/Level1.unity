@@ -103440,7 +103440,7 @@ PrefabInstance:
       objectReference: {fileID: 1589384239}
     - target: {fileID: 4753460891306935662, guid: f457676ed24117d4786f58e3022253ce, type: 3}
       propertyPath: NextLevel
-      value: Level2
+      value: Lvl2_cutscene
       objectReference: {fileID: 0}
     - target: {fileID: 4753460891306935662, guid: f457676ed24117d4786f58e3022253ce, type: 3}
       propertyPath: endCopter

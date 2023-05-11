@@ -33,6 +33,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Lvl1_Objectives.unity
     guid: ddcc3f2e864cdbd418ba2e937a2d2ff0
   - enabled: 1
+    path: Assets/Scenes/Lvl2_cutscene.unity
+    guid: 398d1db1239886547a4c43c808d7319e
+  - enabled: 1
+    path: Assets/Scenes/Lvl3_cutscene.unity
+    guid: c03292f33b3d1054f82842fe4536ad01
+  - enabled: 1
+    path: Assets/Scenes/Lvlf_cutscene.unity
+    guid: 2b5b456364fd361479dc6ac2de50e48d
+  - enabled: 1
     path: Assets/Scenes/FinalLevel.unity
     guid: 606fe70df63531b40b570e212bd047d7
   m_configObjects: {}

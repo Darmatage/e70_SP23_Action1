@@ -9,7 +9,7 @@ public class TheMaster : MonoBehaviour
     public GameObject[] Destroy_object;
     public int health = 10;
     public GameObject virus;
-    private int counter = 0;
+    public int counter = 0;
     private float angle = 0.0f;
     private Transform target;
 
@@ -23,9 +23,9 @@ public class TheMaster : MonoBehaviour
     void Update()
     {
         if(child_count() == 0) StartCoroutine(destruct());
-        counter++;
         if(Vector3.Distance(transform.position, target.transform.position) <= 15)
         {
+            counter++;
             /*
             angle+=0.1f;
             float child_angle = 0.0f;
@@ -41,11 +41,12 @@ public class TheMaster : MonoBehaviour
                     child_angle += angle_change;
                 }
             }*/
-            if(counter == 150) 
+            if(counter == 1000) 
             {
                 counter = 0;
                 GameObject clone = Instantiate(virus) as GameObject;
                 clone.transform.position = transform.position;
+                //clone.transform.position.renderer.enabled = true;
                 clone.SetActive(true);
             }
 
