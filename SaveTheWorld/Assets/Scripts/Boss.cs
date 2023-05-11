@@ -93,6 +93,11 @@ public class Boss : MonoBehaviour
         {
             health --;
             StartCoroutine(collideFlash());
+
+            float temp_angle = collision.gameObject.GetComponent<Bulletmove>().angle;
+            Vector3 hvMove = new Vector3((float)Math.Cos((temp_angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((temp_angle + 90)/ Mathf.Rad2Deg), 0.0f);
+            transform.position = transform.position + hvMove * 1.0f * Time.deltaTime;
+
             if(health <= 0)
             {
                 //GameObject clone = Instantiate(zombie) as GameObject;

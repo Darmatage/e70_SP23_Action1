@@ -51,7 +51,7 @@ public class ZombieMove : MonoBehaviour
 
     void Start()
     {
-        rb2D.mass = (float)UnityEngine.Random.Range(1, 11) / 10.0f;
+        rb2D.mass = (float)UnityEngine.Random.Range(1, 22) / 20.0f;
         Identity = UnityEngine.Random.Range(1, 11);
 
         Civilian_walk = "Civilian1_walk";
@@ -345,6 +345,10 @@ public class ZombieMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Vaccine") 
         {
+            float temp_angle = collision.gameObject.GetComponent<Bulletmove>().angle;
+            Vector3 hvMove = new Vector3((float)Math.Cos((temp_angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((temp_angle + 90)/ Mathf.Rad2Deg), 0.0f);
+            transform.position = transform.position + hvMove * 5.0f / (float)(str_lvl) * Time.deltaTime;
+
             health--;
             StartCoroutine(collideFlash());
             if(health <= 0 && zombiemode)

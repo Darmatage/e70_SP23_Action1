@@ -41,7 +41,7 @@ public class TheMaster : MonoBehaviour
                     child_angle += angle_change;
                 }
             }*/
-            if(counter == 750) 
+            if(counter == 650) 
             {
                 counter = 0;
                 GameObject clone = Instantiate(virus) as GameObject;

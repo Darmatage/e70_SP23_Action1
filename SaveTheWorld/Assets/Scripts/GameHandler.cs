@@ -199,7 +199,7 @@ public class GameHandler : MonoBehaviour {
 
             if(sceneName == "Lvl3_cutscene") SceneManager.LoadScene("Level3");
 
-            if(sceneName == "Lvlf_cutscene") SceneManager.LoadScene("Levelf");
+            if(sceneName == "Lvlf_cutscene") SceneManager.LoadScene("FinalLevel");
 
             updateStatsDisplay();
       }
