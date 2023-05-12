@@ -8,7 +8,6 @@ using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour { 
 
-
       // These are for the Pause Menu
       public static bool GameisPaused = false;
       public GameObject pauseMenuUI;
@@ -41,6 +40,8 @@ public class GameHandler : MonoBehaviour {
       //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true; 
 
       private string sceneName;
+	  public static string lastLevelDied;  //allows replaying the Level where you died
+	  
       private string objectives;
 
       // Used for PauseMenu
@@ -166,6 +167,7 @@ public class GameHandler : MonoBehaviour {
 
       public void playerDies(){
             // player.GetComponent<PlayerHurt>().playerDead();       //play Death animation 
+			lastLevelDied = sceneName;       //allows replaying the Level where you died
             StartCoroutine(DeathPause());
       }
 
@@ -183,12 +185,27 @@ public class GameHandler : MonoBehaviour {
 
       public void RestartGame() {
             // Used for PauseMenu
-            Time.timeScale = 1f; 
-
-            SceneManager.LoadScene("MainMenu");
-                // Please also reset all static variables here, for new games!
+            Time.timeScale = 1f;
+            
+			// Reset all static variables here, for new games!
             playerHealth = StartPlayerHealth;
-            ammo = StartPlayerAmmo;
+			rescued = 0;
+			rescuedt = 0.0f;
+			ammo = StartPlayerAmmo;
+			
+			SceneManager.LoadScene("MainMenu");
+      }
+
+	// Replay the Level where you died
+      public void ReplayLastLevel() {
+            Time.timeScale = 1f;
+            
+             // Reset all static variables here, for new games:
+            playerHealth = StartPlayerHealth;
+			rescued = 0;
+			ammo = StartPlayerAmmo *2; 
+			
+			SceneManager.LoadScene(lastLevelDied);
       }
 
       public void loadNext(string scene) {
@@ -214,6 +231,10 @@ public class GameHandler : MonoBehaviour {
 
       public void Credits() {
             SceneManager.LoadScene("Credits");
+      }
+	  
+	  public void Controls() {
+            SceneManager.LoadScene("Controls");
       }
 
       public void civilian_rescued() // changes the civilian rescue count
