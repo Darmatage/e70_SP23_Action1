@@ -115,6 +115,8 @@ public class Player_HelicopterHandler : MonoBehaviour{
 		transform.position = endCopterSeat.transform.position;
 		transform.parent = endCopterSeat.transform;
 		gameObject.GetComponent<Collider2D>().enabled = false;
+		playerArt.SetActive(false);
+		playerGunArt.SetActive(false);
 		animEndCoptor.SetBool("slow", false);
 		endCopterUp = true;
 		cameraShake.ShakeCamera(0.25f, 0.05f); 
