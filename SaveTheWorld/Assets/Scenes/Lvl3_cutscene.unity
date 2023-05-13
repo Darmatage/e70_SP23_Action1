@@ -354,13 +354,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-    Venture forth to a remote village, infested with Zombies of varying
-    sizes, situated perilously close to an active volcano. Avoid the deadly lava
-    as it spells certain demise. As the villagers cling to fragile hope, you stand
-    as their unyielding beacon of light amid the chaos. Seek the entrance to the
-    lab instead of a helipad.'
+  m_Text: "\nAgent, we have just received intel about a lab located on the mountain
+    at the heart of the forest. \nWe think this lab is where the new Zombie virus
+    was developed. \nGet in there and destroy it! Watch out for lava fields!\n"
 --- !u!222 &696939172
 CanvasRenderer:
   m_ObjectHideFlags: 0

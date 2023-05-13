@@ -354,12 +354,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-    Embark on a heroic quest to a secluded rural village, where countless
-    lives teeter on the precipice of doom. Your noble duty is to vaccinate as many
-    people as possible, becoming their unwavering source of salvation. The danger
-    is palpable, with an insidious infection threatening innocent lives.'
+  m_Text: "\nGood work, agent. Your next objective is a larger village deeper in
+    the woods. \nHow many sick can you save before you get to the next checkpoint?\n"
 --- !u!222 &696939172
 CanvasRenderer:
   m_ObjectHideFlags: 0

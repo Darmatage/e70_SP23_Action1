@@ -354,10 +354,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You have arrived at the heart of the Zombie hive. Brace yourself, for the
-    battle will be fierce and unyielding. Vaccinate as many as you can, but beware
-    their strength and sheer numbers. Once this mission is accomplished, your legacy
-    will echo through the ages, as the world sings songs in your honor for eternity.
+  m_Text: "It looks like you've entered the lab. \nGet in there and destroy whatever
+    is making this virus. Remember to save as many of the infected as you can!"
 --- !u!222 &696939172
 CanvasRenderer:
   m_ObjectHideFlags: 0

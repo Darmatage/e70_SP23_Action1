@@ -318,8 +318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -12}
-  m_SizeDelta: {x: 1100, y: 300}
+  m_AnchoredPosition: {x: 0, y: -26.8185}
+  m_SizeDelta: {x: 1100, y: 329.637}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696939171
 MonoBehaviour:
@@ -354,12 +354,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "As the Vaxinator, the world\u2019s foremost epidemiologist, embark on
-    a heroic quest to safeguard humanity. Your mission is to tirelessly vaccinate
-    as many individuals as possible, ensuring their protection against deadly diseases
-    while preserving your own life. Channel your expertise, wit, and agility to navigate
-    through challenging scenarios, making crucial decisions and achieving the ultimate
-    goal of saving mankind."
+  m_Text: "Here is your mission, agent. A forest community has been infected with
+    a new strain of zombie virus. We don\u2019t know where it comes from, but we
+    have developed a vaccine. \nFire darts to save as many of the infected as you
+    can, and get to the next checkpoint helicopter!\n"
 --- !u!222 &696939172
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -644,6 +642,10 @@ PrefabInstance:
     - target: {fileID: 4305463413129115980, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305463413129115980, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4305463413129115980, guid: 549932026b9304c64ac5b0cd04ff657b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
