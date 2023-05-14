@@ -110,13 +110,16 @@ public class GameHandler : MonoBehaviour {
             if (isDefending == false){
                   playerHealth -= damage; 
                   if (playerHealth >=0){ 
-                        updateStatsDisplay(); 
+                        updateStatsDisplay();
                   } 
                   if (damage > 0){
                         player.GetComponent<PlayerMoveAround>().injured();
                         // player.GetComponent<PlayerHurt>().playerHit();       //play GetHit animation 
                   }
-            } 
+            }
+            if (damage > 0){
+                  player.GetComponent<PlayerMoveAround>().injured();
+            }
             //collideFlash();
             if (playerHealth > StartPlayerHealth+20){
                   while(playerHealth > StartPlayerHealth+20){
@@ -167,13 +170,15 @@ public class GameHandler : MonoBehaviour {
 
       public void playerDies(){
             // player.GetComponent<PlayerHurt>().playerDead();       //play Death animation 
-			lastLevelDied = sceneName;       //allows replaying the Level where you died
-            StartCoroutine(DeathPause());
+	      lastLevelDied = sceneName;       //allows replaying the Level where you died
+            SceneManager.LoadScene("End_Lose");
+            //StartCoroutine(DeathPause());
       }
 
       IEnumerator DeathPause(){
             // player.GetComponent<PlayerMove>().isAlive = false;
             // player.GetComponent<PlayerJump>().isAlive = false;
+            SceneManager.LoadScene("End_Lose");
             yield return new WaitForSeconds(1.0f);
             SceneManager.LoadScene("End_Lose");
       }

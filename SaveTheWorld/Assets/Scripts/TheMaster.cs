@@ -41,7 +41,7 @@ public class TheMaster : MonoBehaviour
                     child_angle += angle_change;
                 }
             }*/
-            if(counter == 650) 
+            if(counter == 700) 
             {
                 counter = 0;
                 GameObject clone = Instantiate(virus) as GameObject;
@@ -58,7 +58,7 @@ public class TheMaster : MonoBehaviour
         int count = 0;
         foreach(GameObject child in children)
         {
-            if(child != null) count ++;
+            if(child.GetComponent<TestTank>().alive) count ++;
         }
         return count;
 

@@ -114849,6 +114849,10 @@ PrefabInstance:
       propertyPath: tokensText
       value: 
       objectReference: {fileID: 339954052}
+    - target: {fileID: 916665155514757004, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
+      propertyPath: ObjectiveTextpause
+      value: 
+      objectReference: {fileID: 339954052}
     - target: {fileID: 2222565926698809344, guid: 1d27e85927466ef48adedb9fdd264979, type: 3}
       propertyPath: m_RootOrder
       value: 0

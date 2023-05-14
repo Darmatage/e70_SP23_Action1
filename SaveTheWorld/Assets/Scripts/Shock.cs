@@ -28,7 +28,7 @@ public class Shock : MonoBehaviour
         {
             gameHandler.playerGetHit(1);
             Vector3 hvMove = new Vector3((float)Math.Cos((angle) / Mathf.Rad2Deg), (float)Math.Sin((angle)/ Mathf.Rad2Deg), 0.0f);
-            target.transform.position = target.transform.position + hvMove * 100.0f * Time.deltaTime;
+            target.transform.position = target.transform.position + hvMove * 50.0f * Time.deltaTime;
         }
     }
 }
