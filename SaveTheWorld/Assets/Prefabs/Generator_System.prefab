@@ -592,7 +592,15 @@ MonoBehaviour:
   Destroy_object:
   - {fileID: 3820669021217142549}
   TheMaster: {fileID: 0}
+  tank_sprite:
+  - {fileID: 21300000, guid: 38ef845e43cb5244db0be98861fcb27e, type: 3}
+  - {fileID: 21300000, guid: ff1a28fb4591b5d4ebc5ef54ef38aa7c, type: 3}
+  - {fileID: 21300000, guid: 5c70d26b0b7b1064fb20d46433eec9f0, type: 3}
+  - {fileID: 21300000, guid: bae4d634156793244921de420f2019b3, type: 3}
+  - {fileID: 21300000, guid: 5c7bc503103e51b4ea6d1f9c2c3a7a36, type: 3}
+  - {fileID: 21300000, guid: 3a0843163d3563646804d69fc1448a2c, type: 3}
   health: 5
+  alive: 1
 --- !u!61 &5817323012008358597
 BoxCollider2D:
   m_ObjectHideFlags: 0

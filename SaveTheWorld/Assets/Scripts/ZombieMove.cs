@@ -254,11 +254,13 @@ public class ZombieMove : MonoBehaviour
             }
             else
             {
-                if(!transformers) anim.Play(Civilian_walk);
+                if(!transformers && !beingsaved) anim.Play(Civilian_walk);
                 angle = Mathf.Atan2((transform.position.y - attack_location.y) *-1, (transform.position.x - attack_location.x)*-1) * Mathf.Rad2Deg -90f;
                 Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
                 transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
+
+            if(beingsaved) anim.Play(Civilian_cheer);
 
             if(reinfect <= 10) StartCoroutine(sick());
         }
@@ -282,7 +284,16 @@ public class ZombieMove : MonoBehaviour
                 //Vector3 hvMove = new Vector3((float)Math.Cos((angle + 90) / Mathf.Rad2Deg), (float)Math.Sin((angle + 90)/ Mathf.Rad2Deg), 0.0f);
                 //transform.position = transform.position + hvMove * speed * Time.deltaTime;
             }
-            if(DistToSafety < 1f) StartCoroutine(cheering());
+            if(DistToSafety < 1f) 
+            {
+                if(!beingsaved) StartCoroutine(cheering());
+                transformers = true;
+                zombiemode = false;
+                beingsaved = true;
+                speed = 0.1f;
+                reinfect = 750;
+                //anim.Play(Civilian_cheer);
+            }
         }
 
         //In the level 4 lab, cured civilians run for the exit at the start of the lab
@@ -363,12 +374,12 @@ public class ZombieMove : MonoBehaviour
             //spriteRenderer.material.SetColor("_Color", Color.red);
             //spriteRenderer.material.color = c;
             //collideFlash();
-        }
+        }/*
         if (collision.gameObject.tag == "CheckPoint" && !zombiemode) 
         {
             speed = 0.1f;
             StartCoroutine(cheering());
-        }
+        }*/
         if (collision.gameObject.tag == "Player" && zombiemode)
         {
             gameHandler.playerGetHit(str_lvl*10);
@@ -423,17 +434,25 @@ public class ZombieMove : MonoBehaviour
 
     }
 
+    void saved()
+    {
+        gameObject.tag = "Civilian";
+        MedivacSFX.Play();
+        //gameHandler.civilian_rescued();
+        Destroy(gameObject);  
+    }
+
     IEnumerator cheering() 
     {
-        transformers = true;
-        zombiemode = false;
+        //transformers = true;
+        //zombiemode = false;
         gameObject.tag = "Civilian";
-        anim.Play(Civilian_cheer);
+        //anim.Play(Civilian_cheer);
         MedivacSFX.Play();
         //speed = 0;
-        yield return new WaitForSeconds(1f);
-        if(!beingsaved) gameHandler.civilian_rescued();
-        beingsaved = true;
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+        gameHandler.civilian_rescued();
         Destroy(gameObject);   
     }
 

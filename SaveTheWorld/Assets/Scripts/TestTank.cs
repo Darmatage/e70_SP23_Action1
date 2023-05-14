@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TestTank : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public GameObject[] Destroy_object;
     public GameObject TheMaster;
+    public Sprite[] tank_sprite;
     public int health = 5;
+    public Boolean alive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +26,10 @@ public class TestTank : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Vaccine") 
+        if (collision.gameObject.tag == "Vaccine" && health > 0) 
         {
             health--;
+            spriteRenderer.sprite = tank_sprite[health];
             StartCoroutine(collideFlash());
             TheMaster.GetComponent<TheMaster>().is_hit();
             if(health <= 0) StartCoroutine(destruct());
@@ -46,6 +50,7 @@ public class TestTank : MonoBehaviour
         {
             Destroy(Todestroy);
         }
-        Destroy(gameObject);
+        alive = false;
+        //Destroy(gameObject);
     }
 }
