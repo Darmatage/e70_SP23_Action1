@@ -11,7 +11,7 @@ public class TheMaster : MonoBehaviour
     public int health = 10;
     public GameObject virus;
     public int counter = 0;
-    private float angle = 0.0f;
+    //private float angle = 0.0f;
     private Transform target;
     private GameObject clone;
     public Sprite[] tank_sprite;
@@ -33,6 +33,9 @@ public class TheMaster : MonoBehaviour
         {
             StartCoroutine(destruct());
             isalive = false;
+            StopCoroutine(spawn());
+            clone.transform.GetChild(1).gameObject.GetComponent<ZombieMove>().speed = 3.0f;
+            //Destroy(clone.transform.GetChild(0));
         }
         if(start && isalive && Vector3.Distance(transform.position, target.transform.position) <= 15) 
         {
@@ -93,16 +96,21 @@ public class TheMaster : MonoBehaviour
 
         for(iter = 13; iter >= 0; iter--)
         {
-            yield return new WaitForSeconds(0.60f);
-            spriteRenderer.sprite = tank_sprite[iter];
+            if(isalive){
+                yield return new WaitForSeconds(0.60f);
+                spriteRenderer.sprite = tank_sprite[iter];
+            }
         }
 
-        clone.transform.GetChild(1).gameObject.GetComponent<ZombieMove>().killed();
-        clone.transform.GetChild(1).gameObject.SetActive(false);
-        clone.transform.GetChild(0).gameObject.SetActive(true);
-        
+        if(isalive){
+            clone.transform.GetChild(1).gameObject.GetComponent<ZombieMove>().killed();
+            clone.transform.GetChild(1).gameObject.SetActive(false);
+            clone.transform.GetChild(0).gameObject.SetActive(true);
+        }
+
         iter = 13;
         spriteRenderer.sprite = tank_sprite[iter];
+
         start = true;
     }
 

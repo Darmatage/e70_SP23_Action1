@@ -41,10 +41,9 @@ public class Player_HelicopterHandler : MonoBehaviour{
 	}
 	
     void Start(){
-
 		cameraShake = GameObject.FindWithTag("ShakerCam").GetComponent<CameraShake>(); 
 
-        //turn off the player (but keep it there for camera location 
+		//turn off the player (but keep it there for camera location 
 		playerMoveScript.enabled = false;
 		playerArt.SetActive(false);
 		playerGunArt.SetActive(false);
@@ -52,7 +51,6 @@ public class Player_HelicopterHandler : MonoBehaviour{
 		// Needed for Camera Shake
 
 		StartCoroutine(StartCopter());
-		
     }
 
     void FixedUpdate(){

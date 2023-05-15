@@ -10,7 +10,7 @@ public class ZombieMove : MonoBehaviour
     public bool zombiemode = true;
     public int str_lvl;
 
-    private float speed;
+    public float speed;
     private float base_speed;
     private float attack;
     public float health;

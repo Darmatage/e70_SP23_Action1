@@ -31,7 +31,7 @@ public class Boss : MonoBehaviour
 
     private GameHandler gameHandler;
 
-    private bool Faceleft = false;
+    //private bool Faceleft = false;
 
     // Start is called before the first frame update
     void Start()
