@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TheMaster : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class TheMaster : MonoBehaviour
     public int counter = 0;
     private float angle = 0.0f;
     private Transform target;
+    private GameObject clone;
+    public Sprite[] tank_sprite;
+    private int iter = 13;
+
+    private Boolean start = true;
+    private Boolean isalive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +29,20 @@ public class TheMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(child_count() == 0) 
+        {
+            StartCoroutine(destruct());
+            isalive = false;
+        }
+        if(start && isalive && Vector3.Distance(transform.position, target.transform.position) <= 15) 
+        {
+            start = false;
+            StartCoroutine(spawn());
+        }
+    }
+        /*
+        spriteRenderer.sprite = tank_sprite[iter];
+        if(iter <= 0) iter = 0;
         if(child_count() == 0) StartCoroutine(destruct());
         if(Vector3.Distance(transform.position, target.transform.position) <= 15)
         {
@@ -41,16 +62,48 @@ public class TheMaster : MonoBehaviour
                     child_angle += angle_change;
                 }
             }*/
-            if(counter == 700) 
+/*
+            if(counter == c_min)
             {
-                counter = 0;
-                GameObject clone = Instantiate(virus) as GameObject;
+                clone = Instantiate(virus) as GameObject;
                 clone.transform.position = transform.position;
                 //clone.transform.position.renderer.enabled = true;
                 clone.SetActive(true);
             }
+            if(counter == c_min) 
+            {
+                counter = 0;
+                iter = 13;
+                clone.transform.GetChild(1).gameObject.GetComponent<ZombieMove>().killed();
+                clone.transform.GetChild(1).gameObject.SetActive(false);
+                clone.transform.GetChild(0).gameObject.SetActive(true);
+            }
 
+        }**/
+    //}
+
+    IEnumerator spawn() 
+    {
+        spriteRenderer.sprite = tank_sprite[iter];
+        yield return new WaitForSeconds(2f);
+
+        clone = Instantiate(virus) as GameObject;
+        clone.transform.position = transform.position;
+        clone.SetActive(true);
+
+        for(iter = 13; iter >= 0; iter--)
+        {
+            yield return new WaitForSeconds(0.60f);
+            spriteRenderer.sprite = tank_sprite[iter];
         }
+
+        clone.transform.GetChild(1).gameObject.GetComponent<ZombieMove>().killed();
+        clone.transform.GetChild(1).gameObject.SetActive(false);
+        clone.transform.GetChild(0).gameObject.SetActive(true);
+        
+        iter = 13;
+        spriteRenderer.sprite = tank_sprite[iter];
+        start = true;
     }
 
     int child_count()
@@ -70,7 +123,11 @@ public class TheMaster : MonoBehaviour
         {
             health--;
             is_hit();
-            if(health <= 0) StartCoroutine(destruct());
+            if(health <= 0) 
+            {
+                isalive = false;
+                StartCoroutine(destruct());
+            }
         }
     }
 
@@ -93,6 +150,5 @@ public class TheMaster : MonoBehaviour
         {
             Destroy(Todestroy);
         }
-        Destroy(gameObject);
     }
 }

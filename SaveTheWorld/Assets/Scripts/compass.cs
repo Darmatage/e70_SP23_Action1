@@ -31,6 +31,10 @@ public class compass : MonoBehaviour
         {
             GameObject temp = nextlocation[location];
             gameHandler.change_objectives(narrations[location]);
+            if(temp.name == "battery_scaler")
+            {
+                if(!temp.GetComponent<TestTank>().alive) location ++;
+            }
             if(temp != null)
             {
                 target = temp.transform;

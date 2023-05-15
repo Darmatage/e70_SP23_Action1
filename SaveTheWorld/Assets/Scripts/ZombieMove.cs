@@ -156,7 +156,11 @@ public class ZombieMove : MonoBehaviour
         attack_location = transform.position;
         angle = Mathf.Atan2((transform.position.y - target.transform.position.y) *-1, (transform.position.x - target.transform.position.x)*-1) * Mathf.Rad2Deg -90f;
         if(!zombiemode) vaxed();
-        if(startascivilian) speed = 0.01f;
+        if(startascivilian) 
+        {
+            gameObject.layer = 8;
+            speed = 0.01f;
+        }
     }
 
     void zombify()
@@ -397,12 +401,16 @@ public class ZombieMove : MonoBehaviour
 
     public void vaxed()
     {
-        StartCoroutine(transformed());
+        if(!startascivilian) 
+        {
+            StartCoroutine(transformed());
+            startascivilian = false;
+        }
         zombiemode = false;
         //gameHandler.civilian_rescued();
         gameObject.tag = "Civilian";
         speed = 3;
-        reinfect = 0;
+        reinfect = 750;
     }
 
     public void killed()
